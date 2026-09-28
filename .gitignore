@@ -1,5 +1,30 @@
+# зависимости
 node_modules/
+
+# сборка
 dist/
+build/
+
+# окружение и секреты
 .env
+.env.*
+!.env.example
+
+# логи
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
 .DS_Store
 Thumbs.db
