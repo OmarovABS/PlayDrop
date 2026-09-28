@@ -12,15 +12,6 @@
   window.addEventListener('scroll', onScroll, {passive: true});
   onScroll();
 
-  // burger scroll to catalog
-  var burger = document.getElementById('burger');
-  if(burger){
-    burger.addEventListener('click', function(){
-      var c = document.getElementById('catalog');
-      if(c) c.scrollIntoView({behavior: 'smooth'});
-    });
-  }
-
   // reveal animations
   var reveals = [].slice.call(document.querySelectorAll('.reveal'));
   if('IntersectionObserver' in window){
@@ -64,6 +55,13 @@
   var catGrid = document.getElementById('catalogGrid');
   var catCount = document.getElementById('catCount');
   var lightNames = {all:'всех жанров', low:'RPG', medium:'экшен', bright:'спорт и гонки'};
+  var plural = function(n, one, few, many){
+    var m = n % 100, k = n % 10;
+    if(m > 10 && m < 20) return many;
+    if(k === 1) return one;
+    if(k >= 2 && k <= 4) return few;
+    return many;
+  };
 
   if(filters && catGrid){
     filters.addEventListener('click', function(e){
@@ -79,7 +77,7 @@
         if(ok) shown++;
       });
       if(catCount){
-        catCount.innerHTML = 'Показано <b>'+shown+'</b> игр'+(shown===1?'а':(shown<5?'ы':''))+' в жанре <b>'+lightNames[f]+'</b>';
+        catCount.innerHTML = 'Показано <b>'+shown+'</b> '+plural(shown,'игра','игры','игр')+' в жанре <b>'+lightNames[f]+'</b>';
       }
     });
   }

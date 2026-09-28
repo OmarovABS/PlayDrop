@@ -22,6 +22,7 @@
       a.classList.toggle('nav-on',a.getAttribute('data-nav')===k);
     });
     window.scrollTo(0,0);
+    try{ document.dispatchEvent(new CustomEvent('playdrop:page', {detail:{page:k}})); }catch(e){}
     try{ parent.postMessage({playdropNav:k},'*'); }catch(e){}
   }
 

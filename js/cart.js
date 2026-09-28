@@ -26,6 +26,13 @@
 
   function qtyTotal(){ return cart.reduce(function(a,i){ return a+i.qty; },0); }
   function money(n){ return n.toLocaleString('ru-RU')+' ₽'; }
+  function plural(n, one, few, many){
+    var m = n % 100, k = n % 10;
+    if(m > 10 && m < 20) return many;
+    if(k === 1) return one;
+    if(k >= 2 && k <= 4) return few;
+    return many;
+  }
 
   window.PLAYDROP = window.PLAYDROP || {};
   window.PLAYDROP.getCart = function(){ return cart.slice(); };
@@ -47,7 +54,7 @@
           '<div class="ci-info"><h3>'+it.name+'</h3><div class="ci-latin">'+it.latin+'</div>'+
             '<div class="ci-meta"><span>'+it.light+'</span><span>· '+money(it.price)+' за шт.</span></div></div>'+
           '<div class="ci-right"><div class="ci-price">'+money(it.price*it.qty)+'</div>'+
-            '<div class="qty"><button data-dec aria-label="Decrease">−</button><span class="qv">'+it.qty+'</span><button data-inc aria-label="Increase">+</button></div>'+
+            '<div class="qty"><button data-dec aria-label="Уменьшить количество">−</button><span class="qv">'+it.qty+'</span><button data-inc aria-label="Увеличить количество">+</button></div>'+
             '<button class="ci-remove" data-remove><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-6"/></svg>Убрать</button>'+
           '</div></div>';
       }).join('');
@@ -60,7 +67,7 @@
     var tax = Math.round(sub*0.08);
     var count = qtyTotal();
     var set = function(id,v){ var el = document.getElementById(id); if(el) el.textContent = v; };
-    set('sumCount','('+count+' item'+(count===1?'':'s')+')');
+    set('sumCount','('+count+' '+plural(count,'товар','товара','товаров')+')');
     set('sumSubtotal',money(sub));
     set('sumTax',money(tax));
     set('sumTotal',money(sub+tax));

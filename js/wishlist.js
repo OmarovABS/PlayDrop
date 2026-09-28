@@ -19,7 +19,7 @@
     if(wishGrid){
       wishGrid.innerHTML = wishlist.map(function(p,idx){
         return '<div class="wish-card" data-widx="'+idx+'">'+
-          '<button class="pc-remove" data-wremove aria-label="Remove"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-6"/></svg></button>'+
+          '<button class="pc-remove" data-wremove aria-label="Удалить из вишлиста"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-6"/></svg></button>'+
           '<div class="pc-top"><div class="pc-emoji"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1.5"/><path d="M11 11l6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M4.5 7l1.7 1.7L10 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'+
             '<div><h3>'+p.name+'</h3><div class="pc-sub">Проверяем каждые '+p.days+' дн.</div></div></div>'+
           '<div class="track-chips">'+
