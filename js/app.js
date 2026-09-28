@@ -2,6 +2,12 @@
 (function(){
   'use strict';
 
+  // Initialize Telegram Web App
+  if (window.Telegram && window.Telegram.WebApp) {
+    window.Telegram.WebApp.ready();
+    window.Telegram.WebApp.expand();
+  }
+
   var titles = {
     cart:['Ваша корзина','Проверьте заказ перед оплатой'],
     orders:['История заказов','Все игры, которые вы купили'],
