@@ -36,7 +36,11 @@
 
   window.PLAYDROP = window.PLAYDROP || {};
   window.PLAYDROP.getCart = function(){ return cart.slice(); };
-  window.PLAYDROP.clearCart = function(){ cart=[]; renderCart(); };
+  window.PLAYDROP.clearCart = function(){
+    cart=[];
+    renderCart();
+    document.dispatchEvent(new CustomEvent('playdrop:cart'));
+  };
 
   var LIGHT_NAMES = {low:'RPG',medium:'Экшен',bright:'Спорт и гонки'};
 
@@ -44,7 +48,10 @@
     var count = qtyTotal();
     if(navCartCount) navCartCount.textContent = count;
     if(cartBadge) cartBadge.textContent = count;
-    if(!cartList) return;
+    if(!cartList){
+      renderSummary();
+      return;
+    }
     if(cart.length === 0){
       cartList.innerHTML = '<div class="cart-empty">'+
         '<svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="20" stroke="currentColor" stroke-width="2.4"/><path d="M20 24h4l2 8h8l3-8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'+
@@ -103,7 +110,15 @@
     renderCart();
     var orig = b.innerHTML; b.classList.add('added'); b.innerHTML='Добавлено ✓';
     setTimeout(function(){ b.classList.remove('added'); b.innerHTML = orig; }, 1100);
+    document.dispatchEvent(new CustomEvent('playdrop:cart'));
   });
 
+  window.PLAYDROP = window.PLAYDROP || {};
+  window.PLAYDROP.onCartChange = function(fn){
+    document.addEventListener('playdrop:cart', fn);
+    fn();
+  };
+
   renderCart();
+  document.dispatchEvent(new CustomEvent('playdrop:cart'));
 })();

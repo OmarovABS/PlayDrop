@@ -3,7 +3,7 @@
   'use strict';
 
   // nav scroll shadow
-  var nav = document.getElementById('nav');
+  var nav = document.getElementById('topbar');
   function onScroll(){
     if(nav){
       nav.classList.toggle('scrolled', window.scrollY > 8);
@@ -82,13 +82,30 @@
     });
   }
 
-  // ===== SIDEBAR NAVIGATION =====
-  var sidebarLinks = [].slice.call(document.querySelectorAll('.sidebar-link'));
+  // ===== TOP NAVIGATION =====
+  var sidebarLinks = [].slice.call(document.querySelectorAll('.seg-opt'));
+  var segThumb = document.getElementById('segThumb');
   var sections = {
     'games': document.getElementById('catalog'),
     'accounts': document.getElementById('accounts'),
     'subscriptions': document.getElementById('subscriptions')
   };
+
+  var seg = document.querySelector('.seg');
+
+  // move the segmented-control thumb under the active pill
+  function moveThumb(){
+    var active = seg && seg.querySelector('.seg-opt.is-on');
+    if(!segThumb || !active) return;
+    segThumb.style.width = active.offsetWidth + 'px';
+    segThumb.style.transform = 'translateX(' + (active.offsetLeft - 2) + 'px)';
+  }
+
+  // reserve exact space for the fixed top bar
+  function syncBar(){
+    if(!nav) return;
+    document.documentElement.style.setProperty('--bar-h', nav.offsetHeight + 'px');
+  }
 
   function switchSection(sectionId){
     // Hide all sections
@@ -107,11 +124,13 @@
     sidebarLinks.forEach(function(link){
       var href = link.getAttribute('href');
       if(href === '#' + sectionId){
-        link.classList.add('active');
+        link.classList.add('is-on');
       } else {
-        link.classList.remove('active');
+        link.classList.remove('is-on');
       }
     });
+
+    moveThumb();
 
     // Scroll to top
     window.scrollTo(0, 0);
@@ -142,4 +161,16 @@
 
   // Initialize with games section visible
   switchSection('games');
+
+  function relayout(){ moveThumb(); syncBar(); }
+
+  window.addEventListener('resize', relayout);
+  window.addEventListener('load', relayout);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(relayout).catch(function(){});
+  }
+  relayout();
+  if(window.ResizeObserver && nav){
+    new ResizeObserver(syncBar).observe(nav);
+  }
 })();
