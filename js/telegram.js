@@ -9,7 +9,8 @@
   tg.expand();
   if (tg.disableVerticalSwipes) tg.disableVerticalSwipes();
   if (tg.enableClosingConfirmation) tg.enableClosingConfirmation();
-  if (tg.setHeaderColor) tg.setHeaderColor('secondary');
+  try { if (tg.setHeaderColor) tg.setHeaderColor('#ffffff'); } catch (err) {}
+  try { if (tg.setBackgroundColor) tg.setBackgroundColor('#ffffff'); } catch (err) {}
 
   document.documentElement.classList.add('tg');
   document.body.classList.add('tg');
@@ -20,37 +21,10 @@
     var tp = tg.themeParams || {};
     var root = document.documentElement.style;
     var set = function(k, v){ if (v) root.setProperty(k, v); };
-    if (tg.colorScheme === 'dark') {
-      set('--paper', tp.bg_color || '#0e1116');
-      set('--paper-2', tp.secondary_bg_color || '#14181f');
-      set('--card', tp.secondary_bg_color || '#14181f');
-      set('--ink', tp.text_color || '#f1f4f9');
-      set('--ink-soft', tp.hint_color || '#a3abba');
-      set('--ink-faint', tp.hint_color || '#89919f');
-      root.setProperty('--line', 'rgba(255,255,255,.14)');
-      root.setProperty('--line-soft', 'rgba(255,255,255,.08)');
-    } else {
-      set('--paper', tp.bg_color);
-      set('--paper-2', tp.secondary_bg_color);
-      set('--card', tp.secondary_bg_color);
-      set('--ink', tp.text_color);
-      set('--ink-soft', tp.hint_color);
-      set('--ink-faint', tp.hint_color);
-    }
     set('--accent', tp.button_color);
     set('--accent-strong', tp.button_color);
-
-    var tint = function(hex, a){
-      var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(String(hex || '').trim());
-      return m ? 'rgba(' + parseInt(m[1],16) + ',' + parseInt(m[2],16) + ',' + parseInt(m[3],16) + ',' + a + ')' : null;
-    };
-    var surface = tint(tp.bg_color, 0.85) || tint(tp.secondary_bg_color, 0.9);
-    if (surface) {
-      var nav = document.getElementById('nav');
-      if (nav) nav.style.background = surface;
-      var head = document.querySelector('.app-head');
-      if (head) head.style.background = surface;
-    }
+    try { if (tg.setHeaderColor) tg.setHeaderColor('#ffffff'); } catch (err) {}
+    try { if (tg.setBackgroundColor) tg.setBackgroundColor('#ffffff'); } catch (err) {}
   }
 
   applyTheme();

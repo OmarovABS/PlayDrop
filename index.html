@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PlayDrop · Игры для PS5 без ожидания</title>
 <meta name="description" content="PlayDrop — магазин лицензионных игр для PS5. Ключ или диск в течение 15 минут после оплаты, уведомления о скидках в вишлисте, гарантия возврата 14 дней.">
-<meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1b1f2b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="tg:viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,16 @@
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <a href="#games" class="sidebar-link active">Игры</a>
+    <a href="#accounts" class="sidebar-link">Аккаунты</a>
+    <a href="#subscriptions" class="sidebar-link">Подписки</a>
+  </nav>
+</aside>
+
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none">
   <symbol id="i-playdrop-0" viewBox="0 0 34 34">
     <rect x="1" y="1" width="32" height="32" rx="10" fill="oklch(0.52 0.19 258)"/>
@@ -47,236 +57,44 @@
   </symbol>
 </svg>
  
-<!-- ============================ HOME ============================ -->
-<section class="pg" data-page="home">
- 
-<nav class="nav" id="nav">
-  <div class="wrap nav-inner">
-    <a class="logo" href="#/home" data-nav="home">
-      <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true"><use href="#i-playdrop-0"/></svg>
-      PlayDrop
-    </a>
-    <div class="nav-links">
-      <a href="#hits">Хиты</a>
-      <a href="#catalog">Каталог</a>
-      <a href="#how">Как это работает</a>
-      <a href="#psplus">PS Plus</a>
-    </div>
-    <div class="nav-cta">
-      <a href="#/signin" data-nav="signin" class="nav-signin">Войти</a>
-      <span class="tg-user" id="tgUser" hidden>
-        <span class="tu-av" id="tgUserAvatar"></span><span class="tu-name" id="tgUserName"></span>
-      </span>
-      <a href="#/app" data-nav="app" class="cart-chip">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 3h1.5l1.2 7.5A1.5 1.5 0 006.2 12h6a1.5 1.5 0 001.5-1.2l1-5.3H4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/></svg>
-        <span class="cc-txt">Корзина</span> <span class="cc-n" id="navCartCount">3</span>
-      </a>
-      <button class="burger" id="burger" aria-label="Меню">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      </button>
-    </div>
-  </div>
-</nav>
- 
-<span id="top"></span>
- 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy reveal">
-      <span class="pill">
-        <span class="leaf">
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M8 1L3 8h3l-1 5 6-8H8l1-4z" fill="currentColor"/></svg>
-        </span>
-        Ключ приходит за <b>15 минут</b>
-      </span>
-      <h1 class="head">Игры для PS5 — <em>без ожидания</em>.</h1>
-      <p class="hero-sub">PlayDrop — магазин лицензионных игр для PS5. Отбираем только проверенные хиты, выдаём ключ или диск в течение часа и пишем вам, как только на игру из вишлиста падает цена.</p>
-      <div class="hero-ctas">
-        <a href="#catalog" class="btn btn-solid btn-lg">Смотреть каталог</a>
-        <a href="#hits" class="btn btn-ghost btn-lg">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13c0-5 0-7 3.5-9.2 0 0 .2 3-1.8 5.6C7.5 12 8 13 8 13z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-          Хиты продаж
-        </a>
-      </div>
-      <div class="hero-meta">
-        <div class="hm-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2l1.9 3.9 4.3.6-3.1 3 .7 4.3L9 11.8 5.2 13.8l.7-4.3-3.1-3 4.3-.6L9 2z" fill="currentColor"/></svg>
-          <span><b>4.9</b> из 3,400 отзывов</span>
-        </div>
-        <div class="hm-item">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 6h10v7H2zM12 8h3l1 2v3h-4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="5" cy="14" r="1.4" fill="currentColor"/><circle cx="13" cy="14" r="1.4" fill="currentColor"/></svg>
-          <span>Выдача ключа за <b>15 минут</b></span>
-        </div>
-      </div>
-    </div>
- 
-    <!-- HERO ART -->
-    <div class="hero-art reveal">
-      <div class="hero-frame">
-        <img src="assets/images/hero.png" width="700" height="840" alt="Контроллер DualSense в мягком свете" loading="eager" fetchpriority="high">
-      </div>
-      <div class="hero-tag t1">
-        <div class="ht-ic soon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><use href="#i-playdrop-1"/></svg></div>
-        <div><div class="ht-t">Скидка −20% скоро</div><div class="ht-s">уведомим в вишлисте</div></div>
-      </div>
-      <div class="hero-tag t2">
-        <div class="ht-ic offline"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3.4" fill="currentColor"/><path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.5 3.5l1.4 1.4M13.1 13.1l1.4 1.4M14.5 3.5l-1.4 1.4M4.9 13.1l-1.4 1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
-        <div><div class="ht-t">Работает офлайн</div><div class="ht-s">после активации ключа</div></div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- STRIP -->
-<div class="strip" aria-hidden="true">
-  <div class="strip-inner">
-    <span class="strip-item"><span class="dot"></span>Ключ активен сразу после оплаты</span>
-    <span class="strip-item"><span class="dot"></span>Гарантия возврата 14 дней</span>
-    <span class="strip-item"><span class="dot"></span>Есть русская озвучка и субтитры</span>
-    <span class="strip-item"><span class="dot"></span>Уведомления о скидках, не спам</span>
-    <span class="strip-item"><span class="dot"></span>Только официальные ключи</span>
-    <span class="strip-item"><span class="dot"></span>Ключ активен сразу после оплаты</span>
-    <span class="strip-item"><span class="dot"></span>Гарантия возврата 14 дней</span>
-    <span class="strip-item"><span class="dot"></span>Есть русская озвучка и субтитры</span>
-    <span class="strip-item"><span class="dot"></span>Уведомления о скидках, не спам</span>
-    <span class="strip-item"><span class="dot"></span>Только официальные ключи</span>
-  </div>
-</div>
- 
-<!-- HITS -->
-<section class="sec hits" id="hits">
-  <div class="wrap">
-    <div class="hits-head reveal">
-      <div class="sec-head" style="margin-bottom:0">
-        <span class="sec-tag">Хиты продаж</span>
-        <h2>Начните с этого. Эти точно зайдут.</h2>
-        <p>Топ игр этого месяца по продажам и отзывам игроков. Если не знаете, с чего начать — начните отсюда.</p>
-      </div>
-      <a href="#catalog" class="btn btn-ghost btn-sm">Смотреть все 9 →</a>
-    </div>
-    <div class="hits-grid">
-      <article class="pcard reveal">
-        <div class="pcard-media">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzdDM0FFRCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRDMUQ5NSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM3QzNBRUQiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjN0MzQUVEIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+RVI8L3RleHQ+Cjwvc3ZnPg==" width="440" height="440" alt="Elden Ring" loading="lazy">
-          <span class="hit-badge"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-2"/></svg>Хит продаж</span>
-          <span class="light-badge">RPG</span>
-        </div>
-        <div class="pcard-body">
-          <h3>Elden Ring</h3>
-          <div class="pcard-latin">FromSoftware · Bandai Namco</div>
-          <div class="pcard-spec">
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span>
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>150+ часов геймплея</span>
-          </div>
-          <div class="pcard-foot">
-            <div class="price">3 200 ₽ <small>· PS5</small></div>
-            <button class="add-btn" data-add data-id="eldenring" data-name="Elden Ring" data-latin="FromSoftware" data-price="3200" data-img="eldenring" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
-          </div>
-        </div>
-      </article>
-      <article class="pcard reveal">
-        <div class="pcard-media">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzhCNUNGNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzVCMjFCNiIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM4QjVDRjYiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjOEI1Q0Y2Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+QkczPC90ZXh0Pgo8L3N2Zz4=" width="440" height="440" alt="Baldur's Gate 3" loading="lazy">
-          <span class="hit-badge"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-2"/></svg>Хит продаж</span>
-          <span class="light-badge">RPG</span>
-        </div>
-        <div class="pcard-body">
-          <h3>Baldur's Gate 3</h3>
-          <div class="pcard-latin">Larian Studios</div>
-          <div class="pcard-spec">
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span>
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Кооп на 4 игрока</span>
-          </div>
-          <div class="pcard-foot">
-            <div class="price">3 800 ₽ <small>· PS5</small></div>
-            <button class="add-btn" data-add data-id="baldursgate" data-name="Baldur's Gate 3" data-latin="Larian Studios" data-price="3800" data-img="baldursgate" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
-          </div>
-        </div>
-      </article>
-      <article class="pcard reveal">
-        <div class="pcard-media">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI1NjNFQiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFFM0E4QSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiMyNTYzRUIiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjMjU2M0VCIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+UiZDPC90ZXh0Pgo8L3N2Zz4=" width="440" height="440" alt="Ratchet & Clank: Rift Apart" loading="lazy">
-          <span class="hit-badge"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-2"/></svg>Хит продаж</span>
-          <span class="light-badge">Экшен</span>
-        </div>
-        <div class="pcard-body">
-          <h3>Ratchet & Clank: Rift Apart</h3>
-          <div class="pcard-latin">Insomniac Games</div>
-          <div class="pcard-spec">
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span>
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>DualSense-фишки</span>
-          </div>
-          <div class="pcard-foot">
-            <div class="price">2 400 ₽ <small>· PS5</small></div>
-            <button class="add-btn" data-add data-id="riftapart" data-name="Ratchet & Clank: Rift Apart" data-latin="Insomniac Games" data-price="2400" data-img="riftapart" data-light="medium">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
-          </div>
-        </div>
-      </article>
-      <article class="pcard reveal">
-        <div class="pcard-media">
-          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZEMjhEOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNCMDc2NCIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM2RDI4RDkiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjNkQyOEQ5Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+SEw8L3RleHQ+Cjwvc3ZnPg==" width="440" height="440" alt="Hogwarts Legacy" loading="lazy">
-          <span class="hit-badge"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-2"/></svg>Хит продаж</span>
-          <span class="light-badge">RPG</span>
-        </div>
-        <div class="pcard-body">
-          <h3>Hogwarts Legacy</h3>
-          <div class="pcard-latin">Avalanche Software · WB Games</div>
-          <div class="pcard-spec">
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span>
-            <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Открытый мир Хогвартса</span>
-          </div>
-          <div class="pcard-foot">
-            <div class="price">4 400 ₽ <small>· PS5</small></div>
-            <button class="add-btn" data-add data-id="hogwarts" data-name="Hogwarts Legacy" data-latin="Avalanche Software" data-price="4400" data-img="hogwarts" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
- 
 <!-- CATALOG -->
 <section class="sec" id="catalog">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-tag">Каталог</span>
-      <h2>Выберите игру под жанр</h2>
-      <p>Укажите жанр — и мы покажем игры, которые точно зайдут. Никаких случайных покупок, о которых потом жалеешь.</p>
-      <div class="filters" id="filters">
-        <span class="fl-label">Жанр:</span>
-        <button class="chip on" data-light="all">Все жанры</button>
-        <button class="chip" data-light="low"><span class="swatch"></span>RPG</button>
-        <button class="chip" data-light="medium"><span class="swatch"></span>Экшен</button>
-        <button class="chip" data-light="bright"><span class="swatch"></span>Спорт и гонки</button>
+    <!-- RPG -->
+    <div class="genre-section">
+      <h3 class="genre-title">RPG</h3>
+      <div class="catalog-grid">
+        <article class="pcard reveal" data-catlight="low">
+          <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzdDM0FFRCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRDMUQ5NSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM3QzNBRUQiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjN0MzQUVEIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+RVI8L3RleHQ+Cjwvc3ZnPg==" width="440" height="440" alt="Elden Ring" loading="lazy"><span class="light-badge">RPG</span></div>
+          <div class="pcard-body">
+            <h3>Elden Ring</h3><div class="pcard-latin">FromSoftware</div>
+            <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">150+ часов геймплея</span></div>
+            <div class="pcard-foot"><div class="price">3 200 ₽</div><button class="add-btn" data-add data-id="eldenring" data-name="Elden Ring" data-latin="FromSoftware" data-price="3200" data-img="eldenring" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-catlight="low">
+          <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzhCNUNGNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzVCMjFCNiIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzQiIHI9IjQiIGZpbGw9IiM4QjVDRjYiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjOEI1Q0Y2Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+QkczPC90ZXh0Pgo8L3N2Zz4=" width="440" height="440" alt="Baldur's Gate 3" loading="lazy"><span class="light-badge">RPG</span></div>
+          <div class="pcard-body">
+            <h3>Baldur's Gate 3</h3><div class="pcard-latin">Larian Studios</div>
+            <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span><span class="spec-bit">Кооп на 4 игрока</span></div>
+            <div class="pcard-foot"><div class="price">3 800 ₽</div><button class="add-btn" data-add data-id="baldursgate" data-name="Baldur's Gate 3" data-latin="Larian Studios" data-price="3800" data-img="baldursgate" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-catlight="low">
+          <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZEMjhEOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNCMDc2NCIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzQiIHI9IjQiIGZpbGw9IiM2RDI4RDkiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjNkQyOEQ5Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+SEw8L3RleHQ+Cjwvc3ZnPg==" width="440" height="440" alt="Hogwarts Legacy" loading="lazy"><span class="light-badge">RPG</span></div>
+          <div class="pcard-body">
+            <h3>Hogwarts Legacy</h3><div class="pcard-latin">Avalanche Software</div>
+            <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">Открытый мир</span></div>
+            <div class="pcard-foot"><div class="price">4 400 ₽</div><button class="add-btn" data-add data-id="hogwarts" data-name="Hogwarts Legacy" data-latin="Avalanche Software" data-price="4400" data-img="hogwarts" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+          </div>
+        </article>
       </div>
     </div>
  
-    <div class="catalog-grid" id="catalogGrid">
-      <article class="pcard reveal" data-catlight="low">
-        <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzdDM0FFRCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRDMUQ5NSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM3QzNBRUQiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjN0MzQUVEIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+RVI8L3RleHQ+Cjwvc3ZnPg==" width="440" height="440" alt="Elden Ring" loading="lazy"><span class="light-badge">RPG</span></div>
-        <div class="pcard-body">
-          <h3>Elden Ring</h3><div class="pcard-latin">FromSoftware</div>
-          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">150+ часов геймплея</span></div>
-          <div class="pcard-foot"><div class="price">3 200 ₽</div><button class="add-btn" data-add data-id="eldenring" data-name="Elden Ring" data-latin="FromSoftware" data-price="3200" data-img="eldenring" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
-        </div>
-      </article>
-      <article class="pcard reveal" data-catlight="low">
-        <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzhCNUNGNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzVCMjFCNiIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM4QjVDRjYiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjOEI1Q0Y2Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+QkczPC90ZXh0Pgo8L3N2Zz4=" width="440" height="440" alt="Baldur's Gate 3" loading="lazy"><span class="light-badge">RPG</span></div>
-        <div class="pcard-body">
-          <h3>Baldur's Gate 3</h3><div class="pcard-latin">Larian Studios</div>
-          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span><span class="spec-bit">Кооп на 4 игрока</span></div>
-          <div class="pcard-foot"><div class="price">3 800 ₽</div><button class="add-btn" data-add data-id="baldursgate" data-name="Baldur's Gate 3" data-latin="Larian Studios" data-price="3800" data-img="baldursgate" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
-        </div>
-      </article>
-      <article class="pcard reveal" data-catlight="low">
-        <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZEMjhEOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNCMDc2NCIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM2RDI4RDkiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjNkQyOEQ5Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+SEw8L3RleHQ+Cjwvc3ZnPg==" width="440" height="440" alt="Hogwarts Legacy" loading="lazy"><span class="light-badge">RPG</span></div>
-        <div class="pcard-body">
-          <h3>Hogwarts Legacy</h3><div class="pcard-latin">Avalanche Software</div>
-          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">Открытый мир</span></div>
-          <div class="pcard-foot"><div class="price">4 400 ₽</div><button class="add-btn" data-add data-id="hogwarts" data-name="Hogwarts Legacy" data-latin="Avalanche Software" data-price="4400" data-img="hogwarts" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
-        </div>
-      </article>
+    <!-- Экшен -->
+    <div class="genre-section">
+      <h3 class="genre-title">Экшен</h3>
+      <div class="catalog-grid">
       <article class="pcard reveal" data-catlight="medium">
         <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI1NjNFQiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFFM0E4QSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiMyNTYzRUIiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjMjU2M0VCIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+UiZDPC90ZXh0Pgo8L3N2Zz4=" width="440" height="440" alt="Ratchet & Clank: Rift Apart" loading="lazy"><span class="light-badge">Экшен</span></div>
         <div class="pcard-body">
@@ -301,6 +119,13 @@
           <div class="pcard-foot"><div class="price">4 600 ₽</div><button class="add-btn" data-add data-id="residentevil4" data-name="Resident Evil 4" data-latin="Capcom" data-price="4600" data-img="residentevil4" data-light="medium">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
         </div>
       </article>
+      </div>
+    </div>
+ 
+    <!-- Спорт и гонки -->
+    <div class="genre-section">
+      <h3 class="genre-title">Спорт и гонки</h3>
+      <div class="catalog-grid">
       <article class="pcard reveal" data-catlight="bright">
         <div class="pcard-media"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0VBNTgwQyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdDMkQxMiIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiNFQTU4MEMiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjRUE1ODBDIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+R1Q3PC90ZXh0Pgo8L3N2Zz4=" width="440" height="440" alt="Gran Turismo 7" loading="lazy"><span class="light-badge">Спорт и гонки</span></div>
         <div class="pcard-body">
@@ -325,369 +150,14 @@
           <div class="pcard-foot"><div class="price">3 000 ₽</div><button class="add-btn" data-add data-id="nba2k25" data-name="NBA 2K25" data-latin="Visual Concepts" data-price="3000" data-img="nba2k25" data-light="bright">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
         </div>
       </article>
-    </div>
-    <p class="cat-count" id="catCount">Показано <b>9</b> игр в жанре <b>всех жанров</b></p>
-  </div>
-</section>
- 
-<!-- HOW IT WORKS -->
-<section id="how" style="padding:20px 0 64px">
-  <div class="how reveal">
-    <div class="how-inner">
-      <div class="how-copy">
-        <span class="sec-tag">Как это работает</span>
-        <h2>Весь смысл в том, что это просто.</h2>
-        <p>К каждой игре — инструкция по активации, а в личном кабинете хранится история покупок и вишлист со скидками. Вот и весь секрет.</p>
-        <a href="#/app" data-nav="app" class="btn btn-solid">Мой вишлист →</a>
-      </div>
-      <div class="how-list">
-        <div class="how-row">
-          <div class="cr-ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2s5 5.6 5 9a5 5 0 11-10 0c0-3.4 5-9 5-9z" fill="currentColor"/></svg></div>
-          <div><h4>Оплатите — ключ придёт сразу</h4><p>Цифровой ключ или код активации появляется в личном кабинете за считанные минуты после оплаты. Никакого ожидания курьера.</p></div>
-        </div>
-        <div class="how-row">
-          <div class="cr-ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3.6" fill="currentColor"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4 4l1.4 1.4M14.6 14.6L16 16M16 4l-1.4 1.4M5.4 14.6L4 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div><h4>Выбирайте игру по жанру</h4><p>Помечаем каждую игру: RPG, экшен или спорт, чтобы вы не листали каталог вслепую. Фильтр выше делает всё за вас.</p></div>
-        </div>
-        <div class="how-row">
-          <div class="cr-ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16h12M6 16V9M14 16V9M4 9h12l-2-4H6L4 9z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-          <div><h4>Диск не подошёл? Вернём деньги</h4><p>Игра не понравилась или диск оказался повреждён — оформите возврат в течение 14 дней, мы всё уладим.</p></div>
-        </div>
       </div>
     </div>
   </div>
 </section>
  
-<!-- PS PLUS UPSELL -->
-<section class="sec" id="psplus" style="padding-top:20px">
-  <div class="wrap">
-    <div class="plus-up">
-      <div class="plus-media reveal">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzQzMzhDQSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFFMUI0QiIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTAuMCw3OC4wKSBzY2FsZSg0LjQpIiBvcGFjaXR5PSIwLjE2Ij4KPHBhdGggZD0iTTIwIDE1IEg4MCBhMTggMTggMCAwIDEgMTggMjAgbC00IDE2IGExMCAxMCAwIDAgMSAtMTcgNSBMNjQgNDQgSDM2IEwyMyA1NiBhMTAgMTAgMCAwIDEgLTE3IC01IGwtNCAtMTYgQTE4IDE4IDAgMCAxIDIwIDE1IFoiIGZpbGw9IiNmZmZmZmYiLz4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iNCIgZmlsbD0iIzQzMzhDQSIvPjxjaXJjbGUgY3g9IjcwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM0MzM4Q0EiLz4KPC9nPgo8dGV4dCB4PSIyMjAiIHk9IjI0OCIgZm9udC1mYW1pbHk9IkhhbmtlbiBHcm90ZXNrLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjgwMCIgZm9udC1zaXplPSI3NCIgZmlsbD0iI2ZmZmZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgbGV0dGVyLXNwYWNpbmc9Ii0xIj5QUys8L3RleHQ+Cjwvc3ZnPg==" width="720" height="540" alt="Геймпад DualSense и экран с подпиской PS Plus" loading="lazy">
-        <div class="plus-price"><div class="ppl-l">К любому заказу</div><div class="ppl-v">699 ₽ <small>/ месяц</small></div></div>
-      </div>
-      <div class="plus-copy reveal">
-        <span class="sec-tag">Подписка под ключ</span>
-        <div class="sec-head" style="margin-bottom:0">
-          <h2>Оформим подписку PS Plus</h2>
-          <p>Добавьте PS Plus при оформлении заказа — активируем её на вашем аккаунте вместе с игрой, никаких лишних шагов.</p>
-        </div>
-        <ul class="plus-feats">
-          <li><span class="plus-chk"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-2"/></svg></span>Essential, Extra или Deluxe на выбор</li>
-          <li><span class="plus-chk"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-2"/></svg></span>Скидки на игры и облачные сохранения</li>
-          <li><span class="plus-chk"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-2"/></svg></span>Активируем сразу, играть можно в тот же день</li>
-        </ul>
-        <a href="#/signin" data-nav="signin" class="btn btn-solid btn-lg">Добавить подписку</a>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- GUARANTEE -->
-<section class="sec guarantee">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="sec-tag" style="justify-content:center">Почему PlayDrop</span>
-      <h2>Покупка игры не должна быть риском</h2>
-    </div>
-    <div class="guar-grid">
-      <div class="guar-card reveal">
-        <div class="guar-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><h3>Гарантия 14 дней</h3><p>Если игра не запустилась или ключ оказался невалидным, вернём деньги без лишних вопросов и доказательств.</p></div>
-      </div>
-      <div class="guar-card reveal">
-        <div class="guar-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 11h8M8 15h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
-        <div><h3>Уведомления о скидках</h3><p>Личный кабинет помнит игры из вашего вишлиста и пишет, как только на них падает цена — не чаще раза в неделю.</p></div>
-      </div>
-      <div class="guar-card reveal">
-        <div class="guar-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="5" stroke="currentColor" stroke-width="1.7"/><path d="M13 13l7 7M17.5 17.5l2-2M20 20l1.5-1.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M6.8 9l1.5 1.5L11.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div><h3>Только официальные ключи</h3><p>Работаем напрямую с дистрибьюторами — никакого серого импорта и риска региональной блокировки аккаунта.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- FINAL CTA -->
-<section>
-  <div class="cta-band reveal">
-    <h2>Первая игра — проще, чем кажется.</h2>
-    <p>Выберите что-то из хитов продаж, остальное возьмём на себя: выдадим ключ, поможем с активацией и напомним о скидках.</p>
-    <div class="hero-ctas">
-      <a href="#catalog" class="btn btn-solid btn-lg">Смотреть каталог</a>
-      <a href="#/signin" data-nav="signin" class="btn btn-ghost btn-lg">Создать аккаунт</a>
-    </div>
-    <div class="cta-fine">Гарантия 14 дней · Выдача ключа за 15 минут · Уведомления о скидках</div>
-  </div>
-</section>
- 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <a class="logo" href="#top">
-          <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true"><use href="#i-playdrop-0"/></svg>
-          PlayDrop
-        </a>
-        <p>Магазин лицензионных игр для PS5: цифровые ключи и диски с быстрой выдачей и честными ценами.</p>
-        <form class="foot-newsletter" id="footForm">
-          <input name="email" type="email" placeholder="Почта для уведомлений о скидках" aria-label="Почта">
-          <button type="submit" class="btn btn-solid btn-sm">Хочу</button>
-        </form>
-      </div>
-      <div class="foot-col">
-        <h4>Магазин</h4>
-        <a href="#hits">Хиты продаж</a>
-        <a href="#catalog">Все игры</a>
-        <a href="#catalog">RPG</a>
-        <a href="#psplus">PS Plus</a>
-      </div>
-      <div class="foot-col">
-        <h4>Инфо</h4>
-        <a href="#how">Как это работает</a>
-        <a href="#how">Активация ключа</a>
-        <a href="#how">Гарантия и возврат</a>
-        <a href="#how">Оплата и доставка</a>
-      </div>
-      <div class="foot-col">
-        <h4>PlayDrop</h4>
-        <a href="#top">О нас</a>
-        <a href="#top">Отзывы</a>
-        <a href="#top">Гарантия</a>
-        <a href="#/signin" data-nav="signin">Аккаунт</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <p>© 2026 PlayDrop · Официальный магазин цифровых ключей и дисков для PS5.</p>
-      <div class="foot-social">
-        <a href="#top" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3.2" stroke="currentColor" stroke-width="1.5"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg></a>
-        <a href="#top" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M8 15l2-7M10 8c0-1.5 1-2.5 2.2-2.5S14 6.5 14 8s-1 3-2.5 3S9.5 10 10 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
-        <a href="#top" aria-label="Уведомления"><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M4 6l6 4 6-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
-    </div>
-  </div>
-</footer>
- 
-</section>
- 
-<!-- ============================ SIGNIN ============================ -->
-<section class="pg" data-page="signin" hidden>
-  <div class="auth">
-    <aside class="auth-aside">
-      <a class="logo" href="#/home" data-nav="home">
-        <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-          <rect x="1" y="1" width="32" height="32" rx="10" fill="oklch(1 0 0 / 0.16)"/>
-          <path d="M17 27c0-6 0-9 4-12 3-2.4 7-2.2 7-2.2s.2 4-2.4 7.2C22.7 23.4 19.5 24 17 24" stroke="oklch(0.98 0.01 120)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M17 27c0-5.5-.2-8.5-3.6-11.4C10.6 13.3 7 13.6 7 13.6s0 3.8 2.3 6.6C11.6 22.9 14.6 23.6 17 23.6" stroke="oklch(0.86 0.09 130)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M17 28V16" stroke="oklch(0.98 0.01 120)" stroke-width="1.7" stroke-linecap="round"/>
-        </svg>
-        PlayDrop
-      </a>
-      <div class="auth-lede">
-        <h2>Ваши игры — <em>всегда под рукой.</em></h2>
-        <p>Войдите, чтобы увидеть корзину, вести вишлист со скидками на игры и следить за заказами от оплаты до активации ключа.</p>
-      </div>
-      <div class="auth-proof">
-        <div class="ap-av">RD</div>
-        <div>
-          <div class="ap-q">"Ключ пришёл за пять минут, а уведомления о скидках реально экономят деньги."</div>
-          <div class="ap-n">Рома Д. · Москва</div>
-        </div>
-      </div>
-    </aside>
-    <main class="auth-main">
-      <form class="auth-form" id="signinForm">
-        <a class="auth-back" href="#/home" data-nav="home">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 3L4.5 7l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Назад в магазин
-        </a>
-        <h1>С возвращением</h1>
-        <p class="sub">Войдите в свой аккаунт PlayDrop.</p>
-        <div class="field">
-          <label for="v-email">Почта</label>
-          <input id="v-email" type="email" placeholder="pochta@example.com" autocomplete="email">
-        </div>
-        <div class="field">
-          <div class="field-row"><label for="v-pass">Пароль</label><a href="#/signin" data-nav="signin">Забыли?</a></div>
-          <input id="v-pass" type="password" placeholder="••••••••" autocomplete="current-password">
-        </div>
-        <button type="submit" class="btn btn-solid btn-lg">Войти в аккаунт</button>
-        <div class="auth-divider">или</div>
-        <button type="button" class="auth-sso" onclick="if(window.goPage)window.goPage('app')">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 4v10M4 9h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          Войти как гость
-        </button>
-        <div class="auth-alt">Впервые в PlayDrop? <a href="#/signin" data-nav="signin">Создать аккаунт</a></div>
-      </form>
-    </main>
-  </div>
-</section>
- <!-- ============================ APP ============================ -->
-<section class="pg" data-page="app" hidden>
-  <div class="app">
-    <aside class="app-side">
-      <a class="logo" href="#/home" data-nav="home">
-        <svg class="logo-mark" viewBox="0 0 34 34" fill="none" aria-hidden="true"><use href="#i-playdrop-0"/></svg>
-        PlayDrop
-      </a>
-      <nav class="side-nav">
-        <span class="side-lbl">Покупки</span>
-        <button class="side-link active" data-view="cart">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 3h1.7l1.3 8.2A1.6 1.6 0 006.6 12.6h6.6a1.6 1.6 0 001.6-1.3l1.1-5.8H4.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="15.5" r="1.1" fill="currentColor"/><circle cx="13" cy="15.5" r="1.1" fill="currentColor"/></svg>
-          Корзина <span class="sl-badge" id="cartBadge">3</span>
-        </button>
-        <button class="side-link" data-view="orders">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="2" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M6 6h6M6 9h6M6 12h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
-          История заказов
-        </button>
-        <span class="side-lbl">Вишлист</span>
-        <button class="side-link" data-view="wishlist">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9.5 2.5L15.5 8.5V15h-6.5L2.5 8.5V2.5H9.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="6" cy="6" r="1.1" fill="currentColor"/></svg>
-          Мой вишлист <span class="sl-badge" id="wishBadge">3</span>
-        </button>
-      </nav>
-      <div class="side-foot">
-        <a class="side-link" href="#/home" data-nav="home">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L2 8v8h5v-4h4v4h5V8L9 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
-          Назад в магазин
-        </a>
-        <div class="side-user">
-          <div class="su-av">РД</div>
-          <div><div class="su-n">Роман Дроздов</div><div class="su-e">roman@playdrop.ru</div></div>
-        </div>
-      </div>
-    </aside>
- 
-    <main class="app-main">
-      <header class="app-head">
-        <div>
-          <h1 id="appTitle">Ваша корзина</h1>
-          <div class="ah-sub" id="appSub">Проверьте заказ перед оплатой</div>
-        </div>
-        <div class="ah-right">
-          <a href="#/home" data-nav="home" class="btn btn-ghost btn-sm">Продолжить</a>
-        </div>
-      </header>
- 
-      <div class="app-body">
- 
-        <!-- CART VIEW -->
-        <section class="view" data-view="cart">
-          <div class="cart-grid">
-            <div>
-              <div class="cart-list" id="cartList"></div>
-            </div>
-            <aside class="summary">
-              <h2>Итог заказа</h2>
-              <div class="sum-row"><span>Сумма <span id="sumCount">(3 товара)</span></span><span class="sr-v" id="sumSubtotal">0 ₽</span></div>
-              <div class="sum-row free"><span>Доставка</span><span class="sr-v" id="sumShip">Бесплатно</span></div>
-              <div class="sum-row"><span>Налог</span><span class="sr-v" id="sumTax">0 ₽</span></div>
-              <div class="sum-divider"></div>
-              <div class="sum-total"><span class="st-l">Итого</span><span class="st-v" id="sumTotal">0 ₽</span></div>
-              <button class="btn btn-solid" id="checkoutBtn" onclick="return false">Оплатить</button>
-              <div class="ship-note">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l6 2.5v4C14 12 11 14.5 8 16 5 14.5 2 12 2 7.5v-4L8 1z" fill="currentColor" opacity=".9"/></svg>
-                Каждый заказ под гарантией возврата 14 дней.
-              </div>
-            </aside>
-          </div>
-        </section>
- 
-        <!-- WISHLIST VIEW -->
-        <section class="view" data-view="wishlist" hidden>
-          <div class="stat-row">
-            <div class="stat-card">
-              <div class="sc-top"><span class="sc-lbl">Игр в списке</span><span class="sc-ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9.5 2.5L15.5 8.5V15h-6.5L2.5 8.5V2.5H9.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="6" cy="6" r="1.1" fill="currentColor"/></svg></span></div>
-              <div class="sc-val" id="statCount">3</div>
-              <div class="sc-delta">в вишлисте</div>
-            </div>
-            <div class="stat-card soon">
-              <div class="sc-top"><span class="sc-lbl">Ближайшая скидка</span><span class="sc-ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><use href="#i-playdrop-1"/></svg></span></div>
-              <div class="sc-val" id="statNext">2дн</div>
-              <div class="sc-delta" id="statNextName">Ratchet & Clank</div>
-            </div>
-            <div class="stat-card cycle">
-              <div class="sc-top"><span class="sc-lbl">Интервал проверки</span><span class="sc-ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3.2" fill="currentColor"/><path d="M9 2v2M9 14v2M2 9h2M14 9h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></div>
-              <div class="sc-val" id="statAvg">13дн</div>
-              <div class="sc-delta">между проверками цены</div>
-            </div>
-          </div>
- 
-          <form class="track-form" id="trackForm">
-            <div class="rf-field">
-              <label for="rf-name">Название игры</label>
-              <input id="rf-name" type="text" placeholder="напр. Ghost of Tsushima" required>
-            </div>
-            <div class="rf-field" style="max-width:160px">
-              <label for="rf-days">Проверять цену раз в</label>
-              <select id="rf-days">
-                <option value="4">4 дня</option>
-                <option value="7" selected>7 дней</option>
-                <option value="10">10 дней</option>
-                <option value="14">14 дней</option>
-                <option value="21">21 день</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-solid">Добавить</button>
-          </form>
- 
-          <div class="wish-grid" id="wishGrid"></div>
-        </section>
- 
-        <!-- ORDERS VIEW -->
-        <section class="view" data-view="orders" hidden>
-          <div class="view-head">
-            <h2>История заказов</h2>
-            <p>Три заказа · 21 600 ₽ на игры, и это не предел.</p>
-          </div>
-          <div class="order-list">
-            <div class="order-card">
-              <div class="order-head">
-                <div><div class="oh-id">Заказ #PD-2048</div><div class="oh-date">12 июл 2026</div></div>
-                <div class="oh-right"><span class="o-status o-transit">В пути</span><span class="oh-total">7 600 ₽</span></div>
-              </div>
-              <div class="order-items">
-                <span class="oi-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzFENEVEOCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzBGMTcyQSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiMxRDRFRDgiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjMUQ0RUQ4Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+U00yPC90ZXh0Pgo8L3N2Zz4=" width="28" height="28" alt="">Marvel's Spider-Man 2</span>
-                <span class="oi-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzI1NjNFQiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzFFM0E4QSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiMyNTYzRUIiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjMjU2M0VCIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+UiZDPC90ZXh0Pgo8L3N2Zz4=" width="28" height="28" alt="">Ratchet & Clank</span>
-              </div>
-            </div>
-            <div class="order-card">
-              <div class="order-head">
-                <div><div class="oh-id">Заказ #PD-1977</div><div class="oh-date">28 июн 2026</div></div>
-                <div class="oh-right"><span class="o-status o-delivered">Доставлен</span><span class="oh-total">8 200 ₽</span></div>
-              </div>
-              <div class="order-items">
-                <span class="oi-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzhCNUNGNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzVCMjFCNiIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM4QjVDRjYiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjOEI1Q0Y2Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+QkczPC90ZXh0Pgo8L3N2Zz4=" width="28" height="28" alt="">Baldur's Gate 3</span>
-                <span class="oi-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZEMjhEOSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNCMDc2NCIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM2RDI4RDkiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjNkQyOEQ5Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+SEw8L3RleHQ+Cjwvc3ZnPg==" width="28" height="28" alt="">Hogwarts Legacy</span>
-              </div>
-            </div>
-            <div class="order-card">
-              <div class="order-head">
-                <div><div class="oh-id">Заказ #PD-1834</div><div class="oh-date">5 июн 2026</div></div>
-                <div class="oh-right"><span class="o-status o-delivered">Доставлен</span><span class="oh-total">5 800 ₽</span></div>
-              </div>
-              <div class="order-items">
-                <span class="oi-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzdDM0FFRCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRDMUQ5NSIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiM3QzNBRUQiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjN0MzQUVEIi8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNzQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+RVI8L3RleHQ+Cjwvc3ZnPg==" width="28" height="28" alt="">Elden Ring</span>
-                <span class="oi-thumb"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgNDQwIj4KPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+CjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0Y5NzMxNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzlBMzQxMiIvPgo8L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjQ0MCIgaGVpZ2h0PSI0NDAiIGZpbGw9InVybCgjZykiLz4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjAuMCwxMTQuMCkgc2NhbGUoMy4yKSIgb3BhY2l0eT0iMC4xNiI+CjxwYXRoIGQ9Ik0yMCAxNSBIODAgYTE4IDE4IDAgMCAxIDE4IDIwIGwtNCAxNiBhMTAgMTAgMCAwIDEgLTE3IDUgTDY0IDQ0IEgzNiBMMjMgNTYgYTEwIDEwIDAgMCAxIC0xNyAtNSBsLTQgLTE2IEExOCAxOCAwIDAgMSAyMCAxNSBaIiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjQiIGZpbGw9IiNGOTczMTYiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjMwIiByPSI0IiBmaWxsPSIjRjk3MzE2Ii8+CjwvZz4KPHRleHQgeD0iMjIwIiB5PSIyNDgiIGZvbnQtZmFtaWx5PSJIYW5rZW4gR3JvdGVzaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI4MDAiIGZvbnQtc2l6ZT0iNTgiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSItMSI+RkMyNTwvdGV4dD4KPC9zdmc+" width="28" height="28" alt="">EA Sports FC 25</span>
-              </div>
-            </div>
-          </div>
-        </section>
- 
-      </div>
-    </main>
-  </div>
-</section>
- 
-
 <!-- JavaScript Modules -->
 <script src="js/main.js"></script>
 <script src="js/cart.js"></script>
-<script src="js/wishlist.js"></script>
-<script src="js/app.js"></script>
-<script src="js/routing.js"></script>
-<script src="js/mobile-menu.js"></script>
-<script src="js/telegram.js"></script>
 
 </body>
 </html>
