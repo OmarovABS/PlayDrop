@@ -81,4 +81,65 @@
       }
     });
   }
+
+  // ===== SIDEBAR NAVIGATION =====
+  var sidebarLinks = [].slice.call(document.querySelectorAll('.sidebar-link'));
+  var sections = {
+    'games': document.getElementById('catalog'),
+    'accounts': document.getElementById('accounts'),
+    'subscriptions': document.getElementById('subscriptions')
+  };
+
+  function switchSection(sectionId){
+    // Hide all sections
+    Object.keys(sections).forEach(function(key){
+      if(sections[key]){
+        sections[key].hidden = true;
+      }
+    });
+
+    // Show selected section
+    if(sections[sectionId]){
+      sections[sectionId].hidden = false;
+    }
+
+    // Update active link
+    sidebarLinks.forEach(function(link){
+      var href = link.getAttribute('href');
+      if(href === '#' + sectionId){
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+
+    // Re-trigger reveal animations for the new section
+    if('IntersectionObserver' in window){
+      var reveals = [].slice.call(document.querySelectorAll('#' + sectionId + ' .reveal'));
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, {threshold: 0.12});
+      reveals.forEach(function(r){ io.observe(r); });
+    }
+  }
+
+  // Add click handlers to sidebar links
+  sidebarLinks.forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var sectionId = link.getAttribute('href').replace('#', '');
+      switchSection(sectionId);
+    });
+  });
+
+  // Initialize with games section visible
+  switchSection('games');
 })();
