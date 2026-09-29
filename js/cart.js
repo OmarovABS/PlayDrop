@@ -38,6 +38,8 @@
   window.PLAYDROP.getCart = function(){ return cart.slice(); };
   window.PLAYDROP.clearCart = function(){ cart=[]; renderCart(); };
 
+  var LIGHT_NAMES = {low:'RPG',medium:'Экшен',bright:'Спорт и гонки'};
+
   function renderCart(){
     var count = qtyTotal();
     if(navCartCount) navCartCount.textContent = count;
@@ -49,8 +51,11 @@
         '<h3>Ваша корзина пуста</h3><p>Вернитесь в каталог и выберите что-нибудь из хитов продаж.</p></div>';
     } else {
       cartList.innerHTML = cart.map(function(it){
+        var media = it.ico
+          ? '<div class="ci-media ci-ico">'+it.ico+'</div>'
+          : '<div class="ci-media"><img src="'+(COVERS[it.img]||'')+'" width="76" height="76" alt="'+it.name+'"></div>';
         return '<div class="cart-item" data-cid="'+it.id+'">'+
-          '<div class="ci-media"><img src="'+(COVERS[it.img]||'')+'" width="76" height="76" alt="'+it.name+'"></div>'+
+          media+
           '<div class="ci-info"><h3>'+it.name+'</h3><div class="ci-latin">'+it.latin+'</div>'+
             '<div class="ci-meta"><span>'+it.light+'</span><span>· '+money(it.price)+' за шт.</span></div></div>'+
           '<div class="ci-right"><div class="ci-price">'+money(it.price*it.qty)+'</div>'+
@@ -88,10 +93,12 @@
     var b = e.target.closest('[data-add]'); if(!b) return;
     var id = b.getAttribute('data-id');
     var ex = cart.filter(function(x){ return x.id===id; })[0];
+    var rawLight = b.getAttribute('data-light');
     if(ex){ ex.qty++; } else {
       cart.push({id:id,name:b.getAttribute('data-name'),latin:b.getAttribute('data-latin'),
         price:parseInt(b.getAttribute('data-price'),10),img:b.getAttribute('data-img'),
-        light:({low:'RPG',medium:'Экшен',bright:'Спорт и гонки'})[b.getAttribute('data-light')||'medium'],qty:1});
+        ico:b.getAttribute('data-ico')||'',
+        light:LIGHT_NAMES[rawLight]||b.getAttribute('data-kind')||'Товар',qty:1});
     }
     renderCart();
     var orig = b.innerHTML; b.classList.add('added'); b.innerHTML='Добавлено ✓';
