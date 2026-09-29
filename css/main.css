@@ -380,7 +380,10 @@ h1.head em{font-style:italic;color:var(--accent-strong);font-weight:500}
 .sec-tag::before{content:"";width:22px;height:1.5px;background:var(--accent)}
 .sec-head.center .sec-tag::before{display:none}
 .sec-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4vw,3rem);line-height:1.06;letter-spacing:-.015em;text-wrap:balance;color:var(--ink)}
+.sec-head h2 em{font-style:italic;font-weight:500;color:var(--accent-strong)}
 .sec-head p{color:var(--ink-soft);font-size:1.08rem;margin-top:16px;max-width:56ch}
+.sec-head.center p{margin-left:auto;margin-right:auto}
+.sec-meta{margin-top:28px;display:flex;align-items:center;justify-content:center;gap:14px 26px;flex-wrap:wrap}
  
 /* HITS */
 .hits{background:var(--paper-2)}
