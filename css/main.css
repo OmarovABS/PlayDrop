@@ -1340,7 +1340,8 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   border:1px solid var(--line);
   border-radius:var(--r-lg);
   overflow:hidden;
-  background:var(--card);
+  /* each tile adopts its logo's own backdrop, so contain leaves no white bars */
+  background:var(--tile-bg,var(--card));
   box-shadow:var(--shadow-sm);
   transition:box-shadow .28s ease,border-color .28s ease;
 }
@@ -1349,8 +1350,13 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   width:100%;
   height:100%;
   object-fit:contain;
-  padding:18%;
 }
+/* backdrops sampled from each logo file so contain shows no white bars */
+.ai-item--chatgpt .ai-tile{--tile-bg:#010101}
+.ai-item--claude .ai-tile{--tile-bg:#fbc093}
+.ai-item--gemini .ai-tile{--tile-bg:linear-gradient(180deg,#010101 0%,#22151f 100%)}
+.ai-item--midjourney .ai-tile{--tile-bg:var(--card)}
+.ai-item--copilot .ai-tile{--tile-bg:#000000}
 .ai-item:hover .ai-tile{
   box-shadow:var(--shadow-lg);
   border-color:var(--accent-tint-2);
