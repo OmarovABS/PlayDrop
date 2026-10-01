@@ -104,6 +104,19 @@ section{position:relative}
 .brand-mark{width:26px;height:26px;border-radius:8px}
 .brand-name{font-size:.98rem;font-weight:600;letter-spacing:-.02em;white-space:nowrap}
 
+/* back link to the services page */
+.back-btn{
+  display:inline-flex;align-items:center;gap:5px;
+  flex:0 0 auto;height:30px;padding:0 12px 0 9px;
+  border:1px solid var(--line);border-radius:100px;
+  background:var(--card);color:var(--ink);
+  font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:-.01em;
+  white-space:nowrap;
+  transition:border-color .18s ease,color .18s ease,background .18s ease;
+}
+.back-btn:hover{border-color:var(--accent);color:var(--accent-strong)}
+.back-btn svg{transform:rotate(90deg)}
+
 /* segmented control */
 .seg{
   position:relative;
@@ -764,6 +777,8 @@ html.js .reveal.in{opacity:1;transform:none}
   .nav-cta .cart-chip .cc-txt{display:none}
   body{padding-left:0}
   .seg-opt{padding:5px 4px;font-size:.72rem}
+  .back-btn{padding:0 8px}
+  .back-txt{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;scroll-behavior:auto!important}
@@ -1066,3 +1081,120 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-perk b{margin-top:0;width:100%}
 }
 
+
+/* ============ SERVICES PAGE ============ */
+/* no top bar here, so drop the space reserved for it */
+body.no-bar{
+  padding-top:0;
+}
+.services-section{
+  padding:56px 0 72px;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+}
+.services-section > .wrap{
+  width:100%;
+}
+.services-title{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(1.9rem,3.6vw,2.6rem);
+  line-height:1.08;
+  letter-spacing:-.015em;
+  color:var(--ink);
+  margin:0 0 28px;
+}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:18px;
+}
+.service-item{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  text-decoration:none;
+  color:inherit;
+  transition:transform .28s cubic-bezier(.22,.61,.36,1);
+}
+.service-item:hover{
+  transform:translateY(-4px);
+}
+.service-tile{
+  display:block;
+  aspect-ratio:1/1;
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--accent-tint);
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .28s ease,border-color .28s ease;
+}
+.service-tile img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.service-item:hover .service-tile{
+  box-shadow:var(--shadow-lg);
+  border-color:var(--accent-tint-2);
+}
+.service-name{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:.98rem;
+  line-height:1.25;
+  text-align:center;
+  color:var(--ink);
+}
+.service-item.is-soon{
+  cursor:default;
+  opacity:.6;
+}
+.service-item.is-soon:hover{
+  transform:none;
+}
+.service-item.is-soon:hover .service-tile{
+  box-shadow:var(--shadow-sm);
+  border-color:var(--line);
+}
+
+/* phones: all four icons on one line */
+@media(max-width:560px){
+  .services-section{
+    padding:28px 0 40px;
+  }
+  .services-title{
+    font-size:1.7rem;
+    margin-bottom:22px;
+  }
+  .services-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+  }
+  .service-item{
+    gap:8px;
+  }
+  .service-tile{
+    border-radius:16px;
+  }
+  .service-name{
+    font-size:.74rem;
+  }
+}
+
+/* very narrow phones keep the row from breaking */
+@media(max-width:360px){
+  .services-grid{
+    gap:6px;
+  }
+  .service-tile{
+    border-radius:12px;
+  }
+  .service-name{
+    font-size:.68rem;
+  }
+}

@@ -83,7 +83,10 @@
   }
 
   // ===== TOP NAVIGATION =====
-  var sidebarLinks = [].slice.call(document.querySelectorAll('.seg-opt'));
+  // only same-page anchors switch sections; links to other pages navigate normally
+  var sidebarLinks = [].slice.call(document.querySelectorAll('.seg-opt')).filter(function(link){
+    return (link.getAttribute('href') || '').charAt(0) === '#';
+  });
   var segThumb = document.getElementById('segThumb');
   var sections = {
     'games': document.getElementById('catalog'),
@@ -159,8 +162,10 @@
     });
   });
 
-  // Initialize with games section visible
-  switchSection('games');
+  // Initialize with games section visible (only on pages that have sections)
+  if(sections.games){
+    switchSection('games');
+  }
 
   function relayout(){ moveThumb(); syncBar(); }
 

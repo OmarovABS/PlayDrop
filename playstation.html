@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>D'VORA · Игры для PS5 без ожидания</title>
+<meta name="description" content="D'VORA — магазин лицензионных игр для PS5. Ключ или диск в течение 15 минут после оплаты, уведомления о скидках в вишлисте, гарантия возврата 14 дней.">
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="tg:viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link rel="stylesheet" href="css/main.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="navbar" id="topbar">
+  <div class="navbar-inner">
+    <a class="back-btn" href="index.html" aria-label="Назад к услугам">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><use href="#i-nav-chevron"/></svg>
+      <span class="back-txt">Услуги</span>
+    </a>
+
+    <nav class="seg" aria-label="Разделы">
+      <span class="seg-thumb" id="segThumb" aria-hidden="true"></span>
+      <a href="#games" class="seg-opt is-on">Игры</a>
+      <a href="#accounts" class="seg-opt">Аккаунты</a>
+      <a href="#subscriptions" class="seg-opt">Подписки</a>
+    </nav>
+
+    <div class="navbar-actions">
+      <button class="icon-btn" id="cartBtn" type="button" aria-label="Корзина" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#i-nav-bag"/></svg>
+        <span class="icon-badge" id="navCartCount">0</span>
+      </button>
+      <button class="avatar-btn" id="profileBtn" type="button" aria-label="Профиль" aria-expanded="false">
+        <span class="avatar" id="navAvatar">—</span>
+        <span class="avatar-caret" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+
+<!-- CART DRAWER -->
+<aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="true">
+  <div class="drawer-head">
+    <h2 class="drawer-title">Корзина</h2>
+    <button class="icon-btn sm" id="cartClose" type="button" aria-label="Закрыть корзину">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#i-nav-x"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body">
+    <div class="cart-list" id="cartList"></div>
+  </div>
+  <div class="drawer-foot">
+    <div class="sum-row"><span>Товары <span id="sumCount"></span></span><span class="sr-v" id="sumSubtotal"></span></div>
+    <div class="sum-row"><span>Комиссия сервиса</span><span class="sr-v" id="sumTax"></span></div>
+    <div class="sum-divider"></div>
+    <div class="sum-total"><span class="st-l">Итого</span><span class="st-v" id="sumTotal"></span></div>
+    <button class="apple-btn" id="checkoutBtn" type="button">Оплатить</button>
+    <p class="drawer-note">Оплата проходит через Telegram. Ключ или данные аккаунта придут в течение 15 минут.</p>
+  </div>
+</aside>
+
+<!-- PROFILE SHEET -->
+<aside class="sheet" id="profileSheet" role="dialog" aria-label="Профиль" aria-hidden="true">
+  <div class="sheet-card">
+    <div class="sheet-head">
+      <span class="avatar lg" id="pfAvatar">—</span>
+      <div class="sheet-id">
+        <div class="sheet-name" id="pfName">Игрок</div>
+        <div class="sheet-user" id="pfUsername">@username</div>
+        <span class="pill-demo" id="pfDemo" hidden>Демо-режим</span>
+      </div>
+      <button class="icon-btn sm" id="profileClose" type="button" aria-label="Закрыть профиль">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#i-nav-x"/></svg>
+      </button>
+    </div>
+
+    <div class="pf-tgid">
+      <span class="pf-tg-l">Telegram ID</span>
+      <b class="pf-tg-v" id="pfTgid">—</b>
+    </div>
+    <p class="pf-note" id="pfNote">Профиль создан автоматически по вашему Telegram ID — регистрация не нужна.</p>
+
+    <div class="pf-grid">
+      <div class="pf-cell"><span class="pf-cl">Заказы</span><b class="pf-cv" id="pfOrders">0</b></div>
+      <div class="pf-cell"><span class="pf-cl">Избранное</span><b class="pf-cv" id="pfWish">0</b></div>
+      <div class="pf-cell"><span class="pf-cl">Баланс</span><b class="pf-cv" id="pfBalance">0 ₽</b></div>
+    </div>
+
+    <div class="pf-menu">
+      <button class="pf-row" type="button" data-pf="orders">
+        <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#i-nav-box"/></svg></span>
+        <span class="pf-rt">Мои заказы</span>
+        <svg class="pf-ch" width="14" height="14" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg>
+      </button>
+      <button class="pf-row" type="button" data-pf="wishlist">
+        <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#i-nav-heart"/></svg></span>
+        <span class="pf-rt">Избранное</span>
+        <span class="pf-badge" id="pfWishBadge">0</span>
+        <svg class="pf-ch" width="14" height="14" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg>
+      </button>
+      <button class="pf-row" type="button" data-pf="settings">
+        <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#i-nav-gear"/></svg></span>
+        <span class="pf-rt">Настройки</span>
+        <svg class="pf-ch" width="14" height="14" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg>
+      </button>
+    </div>
+  </div>
+</aside>
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none">
+  <symbol id="i-playdrop-1" viewBox="0 0 18 18">
+    <circle cx="5.5" cy="5.5" r="2.3" fill="currentColor"/>
+    <circle cx="12.5" cy="12.5" r="2.3" fill="currentColor"/>
+    <path d="M13 4L4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-playdrop-2" viewBox="0 0 14 14">
+    <path d="M2 7l3.5 3.5L12 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-playdrop-3" viewBox="0 0 14 14">
+    <rect x="2" y="4" width="10" height="6" rx="2" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-playdrop-4" viewBox="0 0 14 14">
+    <circle cx="7" cy="7" r="2.6" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-playdrop-5" viewBox="0 0 14 14">
+    <path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-playdrop-6" viewBox="0 0 14 14">
+    <path d="M3 3l8 8M11 3l-8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+
+  <!-- SUBSCRIPTION LOGOS -->
+  <symbol id="i-sub-essential" viewBox="0 0 48 48">
+    <defs>
+      <linearGradient id="g-sub-essential" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#4aa3ff"/><stop offset="1" stop-color="#0a55cf"/>
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#g-sub-essential)"/>
+    <path d="M21 13.5h6V21h7.5v6H27v7.5h-6V27h-7.5v-6H21z" fill="#fff"/>
+  </symbol>
+
+  <symbol id="i-sub-extra" viewBox="0 0 48 48">
+    <defs>
+      <linearGradient id="g-sub-extra" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#37b3ff"/><stop offset="1" stop-color="#5b2bdb"/>
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#g-sub-extra)"/>
+    <rect x="13" y="27" width="6.5" height="9" rx="3.25" fill="#fff" opacity=".62"/>
+    <rect x="20.75" y="21" width="6.5" height="15" rx="3.25" fill="#fff" opacity=".84"/>
+    <rect x="28.5" y="13" width="6.5" height="23" rx="3.25" fill="#fff"/>
+  </symbol>
+
+  <symbol id="i-sub-deluxe" viewBox="0 0 48 48">
+    <defs>
+      <linearGradient id="g-sub-deluxe" x1="6" y1="4" x2="42" y2="44" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#c026a3"/>
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="url(#g-sub-deluxe)"/>
+    <path d="M22 11.5c.75 6.1 4.2 9.55 10.3 10.3-6.1.75-9.55 4.2-10.3 10.3-.75-6.1-4.2-9.55-10.3-10.3 6.1-.75 9.55-4.2 10.3-10.3z" fill="#fff"/>
+    <path d="M35.5 26.5c.4 2.85 1.95 4.4 4.8 4.8-2.85.4-4.4 1.95-4.8 4.8-.4-2.85-1.95-4.4-4.8-4.8 2.85-.4 4.4-1.95 4.8-4.8z" fill="#fff" opacity=".55"/>
+  </symbol>
+
+  <symbol id="i-sub-ea" viewBox="0 0 48 48">
+    <rect x="2" y="2" width="44" height="44" rx="13" fill="#101215"/>
+    <text x="24.5" y="30.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="900" font-style="italic" fill="#fff" letter-spacing="-.5">EA</text>
+  </symbol>
+
+  <!-- SUBSCRIPTION UI ICONS -->
+  <symbol id="i-sub-check" viewBox="0 0 20 20">
+    <path d="M4 10.6l3.9 3.9L16 5.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-sub-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.8" fill="none"/>
+    <path d="M12 7.2v5.2l3.4 2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="i-sub-refresh" viewBox="0 0 24 24">
+    <path d="M19.4 12a7.4 7.4 0 1 1-2.5-5.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <path d="M19.6 4.2v4.6H15" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-sub-shield" viewBox="0 0 24 24">
+    <path d="M12 3.2l7.4 2.8v5.3c0 4.3-2.9 8.1-7.4 9.4-4.5-1.3-7.4-5.1-7.4-9.4V6z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+    <path d="M8.9 12.1l2.2 2.2 4.1-4.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-sub-chat" viewBox="0 0 24 24">
+    <path d="M4.4 6.6A2.6 2.6 0 0 1 7 4h10a2.6 2.6 0 0 1 2.6 2.6v6.6A2.6 2.6 0 0 1 17 15.8h-6.6L6 19.6l.7-3.8H7a2.6 2.6 0 0 1-2.6-2.6z" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linejoin="round"/>
+  </symbol>
+
+  <!-- NAV / UI ICONS -->
+  <symbol id="i-nav-bag" viewBox="0 0 24 24">
+    <path d="M5.6 7.8h12.8l1.1 11.1a1.6 1.6 0 0 1-1.6 1.75H6.1a1.6 1.6 0 0 1-1.6-1.75z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+    <path d="M9.1 10V6.9a2.9 2.9 0 0 1 5.8 0V10" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-nav-chevron" viewBox="0 0 12 12">
+    <path d="M2.6 4.4L6 7.8l3.4-3.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-nav-x" viewBox="0 0 16 16">
+    <path d="M3.6 3.6l8.8 8.8M12.4 3.6l-8.8 8.8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-nav-box" viewBox="0 0 24 24">
+    <path d="M20.2 8.1v7.8a1.6 1.6 0 0 1-.85 1.41l-6.55 3.4a1.6 1.6 0 0 1-1.6 0l-6.55-3.4a1.6 1.6 0 0 1-.85-1.41V8.1" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M3.9 7.6L11.25 4a1.6 1.6 0 0 1 1.6 0l7.35 3.6a.9.9 0 0 1 0 1.64L12.85 13a1.6 1.6 0 0 1-1.6 0L3.9 9.24a.9.9 0 0 1 0-1.64z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-nav-heart" viewBox="0 0 24 24">
+    <path d="M12 20s-7.6-4.5-7.6-9.4A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7.6 2.6c0 4.9-7.6 9.4-7.6 9.4z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-nav-gear" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.7" fill="none"/>
+    <path d="M19.1 14.6a1.5 1.5 0 0 0 .3 1.65l.05.05a1.8 1.8 0 1 1-2.55 2.55l-.05-.05a1.5 1.5 0 0 0-1.65-.3 1.5 1.5 0 0 0-.91 1.37v.13a1.8 1.8 0 1 1-3.6 0v-.07a1.5 1.5 0 0 0-.98-1.37 1.5 1.5 0 0 0-1.65.3l-.05.05A1.8 1.8 0 1 1 5.47 16.4l.05-.05a1.5 1.5 0 0 0 .3-1.65 1.5 1.5 0 0 0-1.37-.91H4.3a1.8 1.8 0 1 1 0-3.6h.07a1.5 1.5 0 0 0 1.37-.98 1.5 1.5 0 0 0-.3-1.65l-.05-.05A1.8 1.8 0 1 1 7.95 4.95l.05.05a1.5 1.5 0 0 0 1.65.3h.07a1.5 1.5 0 0 0 .91-1.37V3.8a1.8 1.8 0 1 1 3.6 0v.07a1.5 1.5 0 0 0 .91 1.37 1.5 1.5 0 0 0 1.65-.3l.05-.05a1.8 1.8 0 1 1 2.55 2.55l-.05.05a1.5 1.5 0 0 0-.3 1.65v.07a1.5 1.5 0 0 0 1.37.91h.13a1.8 1.8 0 1 1 0 3.6h-.07a1.5 1.5 0 0 0-1.37.91z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+ 
+<!-- CATALOG -->
+<section class="sec" id="catalog">
+  <div class="wrap">
+
+    <div class="sec-head center">
+      <h2>Игры для PS5</h2>
+      <p>Диски и цифровые ключи в наличии.</p>
+    </div>
+
+    <!-- RPG -->
+    <div class="genre-section">
+      <h3 class="genre-title">RPG</h3>
+      <div class="catalog-grid">
+        <article class="pcard reveal" data-catlight="low">
+          <div class="pcard-media"><img src="assets/images/games/Elden%20Ring.png" width="440" height="440" alt="Elden Ring" loading="lazy"><span class="light-badge">RPG</span></div>
+          <div class="pcard-body">
+            <h3>Elden Ring</h3><div class="pcard-latin">FromSoftware</div>
+            <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">150+ часов геймплея</span></div>
+            <div class="pcard-foot"><div class="price">3 200 ₽</div><button class="add-btn" data-add data-id="eldenring" data-name="Elden Ring" data-latin="FromSoftware" data-price="3200" data-img="eldenring" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-catlight="low">
+          <div class="pcard-media"><img src="assets/images/games/Baldur's%20Gate3.png" width="440" height="440" alt="Baldur's Gate 3" loading="lazy"><span class="light-badge">RPG</span></div>
+          <div class="pcard-body">
+            <h3>Baldur's Gate 3</h3><div class="pcard-latin">Larian Studios</div>
+            <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span><span class="spec-bit">Кооп на 4 игрока</span></div>
+            <div class="pcard-foot"><div class="price">3 800 ₽</div><button class="add-btn" data-add data-id="baldursgate" data-name="Baldur's Gate 3" data-latin="Larian Studios" data-price="3800" data-img="baldursgate" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-catlight="low">
+          <div class="pcard-media"><img src="assets/images/games/Hogwarts%20Legacy.png" width="440" height="440" alt="Hogwarts Legacy" loading="lazy"><span class="light-badge">RPG</span></div>
+          <div class="pcard-body">
+            <h3>Hogwarts Legacy</h3><div class="pcard-latin">Avalanche Software</div>
+            <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">Открытый мир</span></div>
+            <div class="pcard-foot"><div class="price">4 400 ₽</div><button class="add-btn" data-add data-id="hogwarts" data-name="Hogwarts Legacy" data-latin="Avalanche Software" data-price="4400" data-img="hogwarts" data-light="low">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+ 
+    <!-- Экшен -->
+    <div class="genre-section">
+      <h3 class="genre-title">Экшен</h3>
+      <div class="catalog-grid">
+      <article class="pcard reveal" data-catlight="medium">
+        <div class="pcard-media"><img src="assets/images/games/Ratchet%20Clank.png" width="440" height="440" alt="Ratchet &amp; Clank: Rift Apart" loading="lazy"><span class="light-badge">Экшен</span></div>
+        <div class="pcard-body">
+          <h3>Ratchet &amp; Clank: Rift Apart</h3><div class="pcard-latin">Insomniac Games</div>
+          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span><span class="spec-bit">DualSense-фишки</span></div>
+          <div class="pcard-foot"><div class="price">2 400 ₽</div><button class="add-btn" data-add data-id="riftapart" data-name="Ratchet &amp; Clank: Rift Apart" data-latin="Insomniac Games" data-price="2400" data-img="riftapart" data-light="medium">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+        </div>
+      </article>
+      <article class="pcard reveal" data-catlight="medium">
+        <div class="pcard-media"><img src="assets/images/games/Spider-man%202.png" width="440" height="440" alt="Marvel's Spider-Man 2" loading="lazy"><span class="light-badge">Экшен</span></div>
+        <div class="pcard-body">
+          <h3>Marvel's Spider-Man 2</h3><div class="pcard-latin">Insomniac Games</div>
+          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">Эксклюзив PS5</span></div>
+          <div class="pcard-foot"><div class="price">5 200 ₽</div><button class="add-btn" data-add data-id="spiderman" data-name="Marvel's Spider-Man 2" data-latin="Insomniac Games" data-price="5200" data-img="spiderman" data-light="medium">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+        </div>
+      </article>
+      <article class="pcard reveal" data-catlight="medium">
+        <div class="pcard-media"><img src="assets/images/games/Resident-evil%204.png" width="440" height="440" alt="Resident Evil 4" loading="lazy"><span class="light-badge">Экшен</span></div>
+        <div class="pcard-body">
+          <h3>Resident Evil 4</h3><div class="pcard-latin">Capcom</div>
+          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span><span class="spec-bit">VR-режим включён</span></div>
+          <div class="pcard-foot"><div class="price">4 600 ₽</div><button class="add-btn" data-add data-id="residentevil4" data-name="Resident Evil 4" data-latin="Capcom" data-price="4600" data-img="residentevil4" data-light="medium">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+        </div>
+      </article>
+      </div>
+    </div>
+ 
+    <!-- Спорт и гонки -->
+    <div class="genre-section">
+      <h3 class="genre-title">Спорт и гонки</h3>
+      <div class="catalog-grid">
+      <article class="pcard reveal" data-catlight="bright">
+        <div class="pcard-media"><img src="assets/images/games/Gran-Turismo%207.png" width="440" height="440" alt="Gran Turismo 7" loading="lazy"><span class="light-badge">Спорт и гонки</span></div>
+        <div class="pcard-body">
+          <h3>Gran Turismo 7</h3><div class="pcard-latin">Polyphony Digital</div>
+          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">Поддержка руля и VR2</span></div>
+          <div class="pcard-foot"><div class="price">6 800 ₽</div><button class="add-btn" data-add data-id="granturismo" data-name="Gran Turismo 7" data-latin="Polyphony Digital" data-price="6800" data-img="granturismo" data-light="bright">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+        </div>
+      </article>
+      <article class="pcard reveal" data-catlight="bright">
+        <div class="pcard-media"><img src="assets/images/games/Fc%2025.png" width="440" height="440" alt="EA Sports FC 25" loading="lazy"><span class="light-badge">Спорт и гонки</span></div>
+        <div class="pcard-body">
+          <h3>EA Sports FC 25</h3><div class="pcard-latin">EA Sports</div>
+          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Цифровой ключ</span><span class="spec-bit">Кросс-плей со всеми</span></div>
+          <div class="pcard-foot"><div class="price">2 600 ₽</div><button class="add-btn" data-add data-id="eafc25" data-name="EA Sports FC 25" data-latin="EA Sports" data-price="2600" data-img="eafc25" data-light="bright">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+        </div>
+      </article>
+      <article class="pcard reveal" data-catlight="bright">
+        <div class="pcard-media"><img src="assets/images/games/NBA%202K25.png" width="440" height="440" alt="NBA 2K25" loading="lazy"><span class="light-badge">Спорт и гонки</span></div>
+        <div class="pcard-body">
+          <h3>NBA 2K25</h3><div class="pcard-latin">Visual Concepts · 2K</div>
+          <div class="pcard-spec"><span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-3"/></svg>Диск PS5</span><span class="spec-bit">Русские комментаторы</span></div>
+          <div class="pcard-foot"><div class="price">3 000 ₽</div><button class="add-btn" data-add data-id="nba2k25" data-name="NBA 2K25" data-latin="Visual Concepts" data-price="3000" data-img="nba2k25" data-light="bright">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button></div>
+        </div>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCOUNTS -->
+<section class="sec" id="accounts" hidden>
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Аккаунты PS5</h2>
+      <p>Чистые аккаунты PS5 без игр. Мгновенная доставка данных после оплаты.</p>
+    </div>
+
+    <!-- Индия -->
+    <div class="country-section">
+      <div class="country-header">
+        <span class="country-flag">🇮🇳</span>
+        <h3 class="country-title">Индия</h3>
+        <span class="country-badge">Лучшие цены</span>
+      </div>
+      <div class="catalog-grid">
+        <article class="pcard reveal" data-country="india" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Премиум аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">Без бана</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">1 200 ₽</div>
+              <button class="add-btn" data-add data-id="india-premium" data-name="Премиум аккаунт Индия" data-latin="Без игр" data-price="1200" data-img="eldenring" data-country="india" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-country="india" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Стандарт аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">Гарантия 30 дней</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">800 ₽</div>
+              <button class="add-btn" data-add data-id="india-standard" data-name="Стандарт аккаунт Индия" data-latin="Без игр" data-price="800" data-img="spiderman" data-country="india" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- США -->
+    <div class="country-section">
+      <div class="country-header">
+        <span class="country-flag">🇺🇸</span>
+        <h3 class="country-title">США</h3>
+        <span class="country-badge">Максимальный выбор</span>
+      </div>
+      <div class="catalog-grid">
+        <article class="pcard reveal" data-country="usa" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Ультима аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">PS Plus Extra</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">2 500 ₽</div>
+              <button class="add-btn" data-add data-id="usa-ultima" data-name="Ультима аккаунт США" data-latin="Без игр" data-price="2500" data-img="baldursgate" data-country="usa" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-country="usa" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Профи аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">Гарантия 60 дней</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">1 800 ₽</div>
+              <button class="add-btn" data-add data-id="usa-pro" data-name="Профи аккаунт США" data-latin="Без игр" data-price="1800" data-img="residentevil4" data-country="usa" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Турция -->
+    <div class="country-section">
+      <div class="country-header">
+        <span class="country-flag">🇹🇷</span>
+        <h3 class="country-title">Турция</h3>
+        <span class="country-badge">Выгодные цены</span>
+      </div>
+      <div class="catalog-grid">
+        <article class="pcard reveal" data-country="turkey" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Голд аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">Без привязки</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">1 500 ₽</div>
+              <button class="add-btn" data-add data-id="turkey-gold" data-name="Голд аккаунт Турция" data-latin="Без игр" data-price="1500" data-img="granturismo" data-country="turkey" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-country="turkey" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Базик аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">Гарантия 14 дней</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">900 ₽</div>
+              <button class="add-btn" data-add data-id="turkey-basic" data-name="Базик аккаунт Турция" data-latin="Без игр" data-price="900" data-img="eafc25" data-country="turkey" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Польша -->
+    <div class="country-section">
+      <div class="country-header">
+        <span class="country-flag">🇵🇱</span>
+        <h3 class="country-title">Польша</h3>
+        <span class="country-badge">Европейский регион</span>
+      </div>
+      <div class="catalog-grid">
+        <article class="pcard reveal" data-country="poland" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Евро аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">Полный доступ</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">2 000 ₽</div>
+              <button class="add-btn" data-add data-id="poland-euro" data-name="Евро аккаунт Польша" data-latin="Без игр" data-price="2000" data-img="hogwarts" data-country="poland" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+        <article class="pcard reveal" data-country="poland" data-kind="Аккаунт">
+          <div class="pcard-media">
+            <div class="account-icon">🎮</div>
+            <span class="account-badge">Чистый аккаунт</span>
+          </div>
+          <div class="pcard-body">
+            <h3>Старт аккаунт</h3>
+            <div class="pcard-latin">Без игр</div>
+            <div class="pcard-spec">
+              <span class="spec-bit"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-4"/></svg>Основной аккаунт</span>
+              <span class="spec-bit">Гарантия 45 дней</span>
+            </div>
+            <div class="pcard-foot">
+              <div class="price">1 100 ₽</div>
+              <button class="add-btn" data-add data-id="poland-start" data-name="Старт аккаунт Польша" data-latin="Без игр" data-price="1100" data-img="nba2k25" data-country="poland" data-kind="Аккаунт">Купить <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><use href="#i-playdrop-5"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBSCRIPTIONS -->
+<section class="sec sec-subs" id="subscriptions" hidden>
+  <div class="wrap">
+
+    <div class="sec-head center">
+      <span class="sub-eyebrow">D'VORA Plus</span>
+      <h2>Подписки PS5</h2>
+      <p>Все уровни PS Plus и EA Play. Активируем подписку на ваш аккаунт в течение 15 минут после оплаты.</p>
+    </div>
+
+    <div class="sub-switch" id="subSwitch" role="tablist" aria-label="Срок подписки">
+      <button class="sub-opt" type="button" role="tab" data-term="1" aria-selected="false">1 месяц</button>
+      <button class="sub-opt" type="button" role="tab" data-term="3" aria-selected="false">3 месяца</button>
+      <button class="sub-opt on" type="button" role="tab" data-term="12" aria-selected="true">12 месяцев<span class="sub-opt-save">−20%</span></button>
+    </div>
+
+    <div class="sub-grid">
+
+      <article class="sub-card reveal" data-p1="1200" data-p3="3300" data-p12="11500">
+        <div class="sub-card-head">
+          <span class="sub-logo"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" role="img" aria-label="PS Plus Essential"><use href="#i-sub-essential"/></svg></span>
+          <span class="sub-chip">Базовый</span>
+        </div>
+        <h3>PS Plus Essential</h3>
+        <p class="sub-desc">Ежемесячная ротация из двух игр, скидки в PlayStation Store и облачные сохранения.</p>
+        <div class="sub-price">
+          <span class="sub-val" data-sub-val>11 500 ₽</span>
+          <span class="sub-per" data-sub-per>958 ₽ в месяц при оплате за 12 мес.</span>
+        </div>
+        <div class="sub-save" data-sub-save>Выгода 2 900 ₽ против помесячной оплаты</div>
+        <ul class="sub-feats">
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>2 игры каждый месяц по ротации</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Скидки до 70% в PlayStation Store</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Онлайн-мультиплеер и облачные сохранения</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Активация за 15 минут</li>
+        </ul>
+        <button class="sub-btn" data-add data-id="psplus-essential" data-name="PS Plus Essential" data-latin="12 месяцев" data-price="11500" data-kind="Подписка" data-ico="🕹">Оформить</button>
+      </article>
+
+      <article class="sub-card pop reveal" data-p1="2400" data-p3="6500" data-p12="23000">
+        <span class="sub-ribbon">Популярный</span>
+        <div class="sub-card-head">
+          <span class="sub-logo"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" role="img" aria-label="PS Plus Extra"><use href="#i-sub-extra"/></svg></span>
+          <span class="sub-chip">Оптимальный</span>
+        </div>
+        <h3>PS Plus Extra</h3>
+        <p class="sub-desc">Всё из Essential плюс большая библиотека классических игр PS4 и PS5 и облачный стриминг.</p>
+        <div class="sub-price">
+          <span class="sub-val" data-sub-val>23 000 ₽</span>
+          <span class="sub-per" data-sub-per>1 917 ₽ в месяц при оплате за 12 мес.</span>
+        </div>
+        <div class="sub-save" data-sub-save>Выгода 5 800 ₽ против помесячной оплаты</div>
+        <ul class="sub-feats">
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Всё из уровня Essential</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>100+ игр каталога PS4 и PS5</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Загрузка в облако и стриминг с PS5</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Эксклюзивные скидки для подписчиков</li>
+        </ul>
+        <button class="sub-btn" data-add data-id="psplus-extra" data-name="PS Plus Extra" data-latin="12 месяцев" data-price="23000" data-kind="Подписка" data-ico="🕹">Оформить</button>
+      </article>
+
+      <article class="sub-card reveal" data-p1="3000" data-p3="8100" data-p12="28800">
+        <div class="sub-card-head">
+          <span class="sub-logo"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" role="img" aria-label="PS Plus Deluxe"><use href="#i-sub-deluxe"/></svg></span>
+          <span class="sub-chip">Максимум</span>
+        </div>
+        <h3>PS Plus Deluxe</h3>
+        <p class="sub-desc">Всё из Extra плюс классика PS1, PS2 и PSP, пробные версии до релиза и стриминг всего каталога.</p>
+        <div class="sub-price">
+          <span class="sub-val" data-sub-val>28 800 ₽</span>
+          <span class="sub-per" data-sub-per>2 400 ₽ в месяц при оплате за 12 мес.</span>
+        </div>
+        <div class="sub-save" data-sub-save>Выгода 7 200 ₽ против помесячной оплаты</div>
+        <ul class="sub-feats">
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Всё из уровня Extra</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Каталог классики PS1, PS2 и PSP</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Пробный запуск новинок за 2–3 часа до релиза</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Скидки 70% в дни распродаж каталога</li>
+        </ul>
+        <button class="sub-btn" data-add data-id="psplus-deluxe" data-name="PS Plus Deluxe" data-latin="12 месяцев" data-price="28800" data-kind="Подписка" data-ico="🕹">Оформить</button>
+      </article>
+
+    </div>
+
+    <div class="sub-wide reveal" data-p1="900" data-p3="2400" data-p12="8600">
+      <div class="sub-wide-copy">
+        <div class="sub-wide-head">
+          <span class="sub-logo"><svg width="64" height="64" viewBox="0 0 48 48" fill="none" role="img" aria-label="EA Play"><use href="#i-sub-ea"/></svg></span>
+          <div>
+            <h3>EA Play</h3>
+            <span class="sub-chip alt">Библиотека EA на PS5</span>
+          </div>
+        </div>
+        <p class="sub-desc">Тысячи игр от Electronic Arts на одной подписке: спорт, симуляторы и шутеры, а также ранний доступ к EA SPORTS FC.</p>
+        <ul class="sub-feats cols">
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>1000+ игр в библиотеке EA</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Ранний доступ к EA SPORTS FC</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Игры по подписке без загрузки</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Пробные версии новинок на 10 часов</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Очки и скидки в EA Play Rewards</li>
+          <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Кросс-плей с ПК и мобильными</li>
+        </ul>
+      </div>
+      <div class="sub-wide-buy">
+        <div class="sub-price">
+          <span class="sub-val" data-sub-val>8 600 ₽</span>
+          <span class="sub-per" data-sub-per>717 ₽ в месяц при оплате за 12 мес.</span>
+        </div>
+        <div class="sub-save" data-sub-save>Выгода 2 200 ₽ против помесячной оплаты</div>
+        <button class="sub-btn" data-add data-id="ea-play" data-name="EA Play" data-latin="12 месяцев" data-price="8600" data-kind="Подписка" data-ico="⚽">Оформить подписку</button>
+        <p class="sub-fine">Активируем на вашем аккаунте PS5 в течение 15 минут после оплаты</p>
+      </div>
+    </div>
+
+    <ul class="sub-perks">
+      <li class="sub-perk">
+        <span class="sub-perk-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><use href="#i-sub-clock"/></svg></span>
+        <b>Активация за 15 минут</b>
+        <span>Данные для входа приходят сразу после оплаты</span>
+      </li>
+      <li class="sub-perk">
+        <span class="sub-perk-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><use href="#i-sub-refresh"/></svg></span>
+        <b>Продление в один клик</b>
+        <span>Не нужно каждый раз искать продавца и вводить данные</span>
+      </li>
+      <li class="sub-perk">
+        <span class="sub-perk-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><use href="#i-sub-shield"/></svg></span>
+        <b>Гарантия возврата 14 дней</b>
+        <span>Если подписка не активировалась — возвращаем оплату</span>
+      </li>
+      <li class="sub-perk">
+        <span class="sub-perk-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><use href="#i-sub-chat"/></svg></span>
+        <b>Поддержка 24/7</b>
+        <span>Поможем с активацией и продлением в Telegram</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- JavaScript Modules -->
+  <script src="js/main.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/cart-drawer.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/subscriptions.js"></script>
+  <script src="js/telegram.js"></script>
+
+</body>
+</html>
