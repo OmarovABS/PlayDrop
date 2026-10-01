@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>D'VORA · Услуги</title>
+<title>D'VORA · Искусственный интеллект</title>
 <meta name="theme-color" content="#ffffff">
 <meta name="color-scheme" content="light">
 <meta name="tg:viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -19,10 +19,15 @@
 <!-- TOP BAR -->
 <header class="navbar" id="topbar">
   <div class="navbar-inner">
-    <a class="brand" href="index.html" aria-label="D'VORA — услуги">
-      <img class="brand-mark" src="assets/images/logo-mark.png" alt="">
-      <span class="brand-name">D'VORA</span>
+    <a class="back-btn" href="index.html" aria-label="Назад к услугам">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><use href="#i-nav-chevron"/></svg>
+      <span class="back-txt">Услуги</span>
     </a>
+
+    <nav class="seg" aria-label="Разделы">
+      <span class="seg-thumb" id="segThumb" aria-hidden="true"></span>
+      <a href="#subscriptions" class="seg-opt is-on">Подписки</a>
+    </nav>
 
     <div class="navbar-actions">
       <button class="icon-btn" id="cartBtn" type="button" aria-label="Корзина" aria-expanded="false">
@@ -108,31 +113,13 @@
   </div>
 </aside>
 
-<!-- SERVICES -->
-<section class="services-section">
+<!-- SUBSCRIPTIONS -->
+<section class="sec sec-subs" id="subscriptions">
   <div class="wrap">
-    <h1 class="services-title">Наши услуги</h1>
-
-    <div class="services-grid">
-      <a href="playstation.html#games" class="service-item service-item--ps reveal">
-        <span class="service-tile"><img src="assets/images/helps/ps.png" alt="PlayStation"></span>
-        <span class="service-name">PlayStation</span>
-      </a>
-
-      <a href="ai.html" class="service-item service-item--ai reveal">
-        <span class="service-tile"><img src="assets/images/helps/iintelect.png" alt="Искусственный интеллект"></span>
-        <span class="service-name">Искусственный интеллект</span>
-      </a>
-
-      <a href="#" class="service-item service-item--cloud reveal is-soon">
-        <span class="service-tile"><img src="assets/images/helps/oblaco.png" alt="Облачные хранилища"></span>
-        <span class="service-name">Облачные хранилища</span>
-      </a>
-
-      <a href="#" class="service-item service-item--vpn reveal is-soon">
-        <span class="service-tile"><img src="assets/images/helps/vpn.png" alt="VPN-сервисы"></span>
-        <span class="service-name">VPN-сервисы</span>
-      </a>
+    <div class="sec-head center">
+      <span class="sub-eyebrow">D'VORA AI</span>
+      <h2>Подписки</h2>
+      <p>Раздел в разработке — скоро здесь появятся подписки на нейросети.</p>
     </div>
   </div>
 </section>

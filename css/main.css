@@ -1195,15 +1195,10 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
 }
 
 /* ============ SERVICES PAGE ============ */
-/* no top bar here, so drop the space reserved for it */
-body.no-bar{
-  padding-top:0;
-}
 .services-section{
-  padding:56px 0 72px;
-  min-height:100vh;
+  padding:26px 0 56px;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
 }
 .services-section > .wrap{
   width:100%;
@@ -1290,7 +1285,7 @@ body.no-bar{
 /* phones: all four icons on one line */
 @media(max-width:560px){
   .services-section{
-    padding:28px 0 40px;
+    padding:20px 0 36px;
   }
   .services-title{
     font-size:1.7rem;
