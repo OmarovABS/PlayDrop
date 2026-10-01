@@ -1350,6 +1350,9 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   width:100%;
   height:100%;
   object-fit:contain;
+  /* small inset so logos never touch the tile border; invisible on the
+     colour-matched tiles because it reveals only their own backdrop */
+  padding:9%;
 }
 /* backdrops sampled from each logo file so contain shows no white bars */
 .ai-item--chatgpt .ai-tile{--tile-bg:#010101}
@@ -1376,7 +1379,6 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
 @media(max-width:560px){
   .ai-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:26px}
   .ai-tile{border-radius:16px}
-  .ai-tile img{padding:14%}
   .ai-item{gap:8px}
   .ai-name{font-size:.76rem;min-height:2.6em}
 }
