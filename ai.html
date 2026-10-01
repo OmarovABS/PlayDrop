@@ -28,90 +28,8 @@
       <span class="seg-thumb" id="segThumb" aria-hidden="true"></span>
       <a href="#subscriptions" class="seg-opt is-on">Подписки</a>
     </nav>
-
-    <div class="navbar-actions">
-      <button class="icon-btn" id="cartBtn" type="button" aria-label="Корзина" aria-expanded="false">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="#i-nav-bag"/></svg>
-        <span class="icon-badge" id="navCartCount">0</span>
-      </button>
-      <button class="avatar-btn" id="profileBtn" type="button" aria-label="Профиль" aria-expanded="false">
-        <span class="avatar" id="navAvatar">—</span>
-        <span class="avatar-caret" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg></span>
-      </button>
-    </div>
   </div>
 </header>
-
-<div class="scrim" id="scrim" aria-hidden="true"></div>
-
-<!-- CART DRAWER -->
-<aside class="drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Корзина" aria-hidden="true">
-  <div class="drawer-head">
-    <h2 class="drawer-title">Корзина</h2>
-    <button class="icon-btn sm" id="cartClose" type="button" aria-label="Закрыть корзину">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#i-nav-x"/></svg>
-    </button>
-  </div>
-  <div class="drawer-body">
-    <div class="cart-list" id="cartList"></div>
-  </div>
-  <div class="drawer-foot">
-    <div class="sum-row"><span>Товары <span id="sumCount"></span></span><span class="sr-v" id="sumSubtotal"></span></div>
-    <div class="sum-row"><span>Комиссия сервиса</span><span class="sr-v" id="sumTax"></span></div>
-    <div class="sum-divider"></div>
-    <div class="sum-total"><span class="st-l">Итого</span><span class="st-v" id="sumTotal"></span></div>
-    <button class="apple-btn" id="checkoutBtn" type="button">Оплатить</button>
-    <p class="drawer-note">Оплата проходит через Telegram. Ключ или данные аккаунта придут в течение 15 минут.</p>
-  </div>
-</aside>
-
-<!-- PROFILE SHEET -->
-<aside class="sheet" id="profileSheet" role="dialog" aria-label="Профиль" aria-hidden="true">
-  <div class="sheet-card">
-    <div class="sheet-head">
-      <span class="avatar lg" id="pfAvatar">—</span>
-      <div class="sheet-id">
-        <div class="sheet-name" id="pfName">Игрок</div>
-        <div class="sheet-user" id="pfUsername">@username</div>
-        <span class="pill-demo" id="pfDemo" hidden>Демо-режим</span>
-      </div>
-      <button class="icon-btn sm" id="profileClose" type="button" aria-label="Закрыть профиль">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="#i-nav-x"/></svg>
-      </button>
-    </div>
-
-    <div class="pf-tgid">
-      <span class="pf-tg-l">Telegram ID</span>
-      <b class="pf-tg-v" id="pfTgid">—</b>
-    </div>
-    <p class="pf-note" id="pfNote">Профиль создан автоматически по вашему Telegram ID — регистрация не нужна.</p>
-
-    <div class="pf-grid">
-      <div class="pf-cell"><span class="pf-cl">Заказы</span><b class="pf-cv" id="pfOrders">0</b></div>
-      <div class="pf-cell"><span class="pf-cl">Избранное</span><b class="pf-cv" id="pfWish">0</b></div>
-      <div class="pf-cell"><span class="pf-cl">Баланс</span><b class="pf-cv" id="pfBalance">0 ₽</b></div>
-    </div>
-
-    <div class="pf-menu">
-      <button class="pf-row" type="button" data-pf="orders">
-        <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#i-nav-box"/></svg></span>
-        <span class="pf-rt">Мои заказы</span>
-        <svg class="pf-ch" width="14" height="14" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg>
-      </button>
-      <button class="pf-row" type="button" data-pf="wishlist">
-        <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#i-nav-heart"/></svg></span>
-        <span class="pf-rt">Избранное</span>
-        <span class="pf-badge" id="pfWishBadge">0</span>
-        <svg class="pf-ch" width="14" height="14" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg>
-      </button>
-      <button class="pf-row" type="button" data-pf="settings">
-        <span class="pf-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><use href="#i-nav-gear"/></svg></span>
-        <span class="pf-rt">Настройки</span>
-        <svg class="pf-ch" width="14" height="14" viewBox="0 0 12 12" fill="none"><use href="#i-nav-chevron"/></svg>
-      </button>
-    </div>
-  </div>
-</aside>
 
 <!-- SUBSCRIPTIONS -->
 <section class="sec sec-subs" id="subscriptions">
@@ -155,26 +73,8 @@
 
 <!-- ICONS -->
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none">
-  <symbol id="i-nav-bag" viewBox="0 0 24 24">
-    <path d="M5.6 7.8h12.8l1.1 11.1a1.6 1.6 0 0 1-1.6 1.75H6.1a1.6 1.6 0 0 1-1.6-1.75z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
-    <path d="M9.1 10V6.9a2.9 2.9 0 0 1 5.8 0V10" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/>
-  </symbol>
   <symbol id="i-nav-chevron" viewBox="0 0 12 12">
     <path d="M2.6 4.4L6 7.8l3.4-3.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="i-nav-x" viewBox="0 0 16 16">
-    <path d="M3.6 3.6l8.8 8.8M12.4 3.6l-8.8 8.8" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="i-nav-box" viewBox="0 0 24 24">
-    <path d="M20.2 8.1v7.8a1.6 1.6 0 0 1-.85 1.41l-6.55 3.4a1.6 1.6 0 0 1-1.6 0l-6.55-3.4a1.6 1.6 0 0 1-.85-1.41V8.1" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M3.9 7.6L11.25 4a1.6 1.6 0 0 1 1.6 0l7.35 3.6a.9.9 0 0 1 0 1.64L12.85 13a1.6 1.6 0 0 1-1.6 0L3.9 9.24a.9.9 0 0 1 0-1.64z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="i-nav-heart" viewBox="0 0 24 24">
-    <path d="M12 20s-7.6-4.5-7.6-9.4A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7.6 2.6c0 4.9-7.6 9.4-7.6 9.4z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
-  </symbol>
-  <symbol id="i-nav-gear" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.7" fill="none"/>
-    <path d="M19.1 14.6a1.5 1.5 0 0 0 .3 1.65l.05.05a1.8 1.8 0 1 1-2.55 2.55l-.05-.05a1.5 1.5 0 0 0-1.65-.3 1.5 1.5 0 0 0-.91 1.37v.13a1.8 1.8 0 1 1-3.6 0v-.07a1.5 1.5 0 0 0-.98-1.37 1.5 1.5 0 0 0-1.65.3l-.05.05A1.8 1.8 0 1 1 5.47 16.4l.05-.05a1.5 1.5 0 0 0 .3-1.65 1.5 1.5 0 0 0-1.37-.91H4.3a1.8 1.8 0 1 1 0-3.6h.07a1.5 1.5 0 0 0 1.37-.98 1.5 1.5 0 0 0-.3-1.65l-.05-.05A1.8 1.8 0 1 1 7.95 4.95l.05.05a1.5 1.5 0 0 0 1.65.3h.07a1.5 1.5 0 0 0 .91-1.37V3.8a1.8 1.8 0 1 1 3.6 0v.07a1.5 1.5 0 0 0 .91 1.37 1.5 1.5 0 0 0 1.65-.3l.05-.05a1.8 1.8 0 1 1 2.55 2.55l-.05.05a1.5 1.5 0 0 0-.3 1.65v.07a1.5 1.5 0 0 0 1.37.91h.13a1.8 1.8 0 1 1 0 3.6h-.07a1.5 1.5 0 0 0-1.37.91z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
   </symbol>
 </svg>
 
