@@ -402,16 +402,16 @@ h1.head em{font-style:italic;color:var(--accent-strong);font-weight:500}
 .sec-head h2 em{font-style:italic;font-weight:500;color:var(--accent-strong)}
 .sec-head p{color:var(--ink-soft);font-size:1.08rem;margin-top:16px;max-width:56ch}
 .sec-head.center p{margin-left:auto;margin-right:auto}
-/* red panel behind a section title + description */
-.sec-head--red{
+/* grey panel behind a section title + description — same grey as the tab bar */
+.sec-head--panel{
   max-width:720px;
   padding:clamp(24px,3.4vw,38px) clamp(20px,3vw,44px);
-  border:1px solid oklch(0.87 0.08 25);
+  border:1px solid #d9d9de;
   border-radius:28px;
-  background:oklch(0.955 0.028 25);
+  background:#e8e8ed;
 }
-.sec-head--red h2{color:var(--ink)}
-.sec-head--red p{color:var(--ink-soft)}
+.sec-head--panel h2{color:var(--ink)}
+.sec-head--panel p{color:var(--ink-soft)}
 .sec-meta{margin-top:28px;display:flex;align-items:center;justify-content:center;gap:14px 26px;flex-wrap:wrap}
  
 /* HITS */
@@ -937,8 +937,8 @@ body.drawer-open{overflow:hidden}
 /* tier cards */
 .sub-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
+  grid-template-columns:repeat(2,1fr);
+  gap:26px;
   align-items:stretch;
   margin-top:46px;
 }
@@ -946,7 +946,7 @@ body.drawer-open{overflow:hidden}
   position:relative;
   background:#ffffff;
   border-radius:22px;
-  padding:26px 26px 28px;
+  padding:30px 32px 32px;
   display:flex;
   flex-direction:column;
   box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 26px rgba(0,0,0,.06);
@@ -1028,25 +1028,36 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
 .sub-btn:active{transform:scale(.98)}
 .sub-btn.added{background:#34c759}
 
-/* EA Play wide card */
-.sub-wide{
+.sub-wide-row{
   display:grid;
-  grid-template-columns:1.35fr .65fr;
-  gap:36px;
-  align-items:center;
+  grid-template-columns:repeat(2,1fr);
+  gap:26px;
   margin-top:24px;
+  align-items:stretch;
+}
+.sub-wide{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+  align-items:stretch;
   background:#ffffff;
   border-radius:24px;
   padding:30px 32px;
   box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 26px rgba(0,0,0,.06);
   transition:transform .32s cubic-bezier(.22,.61,.36,1),box-shadow .32s;
+  height:100%;
+}
+.sub-wide-copy{
+  display:flex;
+  flex-direction:column;
+  flex:1 1 auto;
 }
 html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.05),0 22px 46px rgba(0,0,0,.12)}
 .sub-wide-head{display:flex;align-items:center;gap:18px}
 .sub-wide-head .sub-logo svg{width:64px;height:64px}
 .sub-wide-head h3{font-family:var(--sans);font-weight:600;font-size:1.6rem;letter-spacing:-.02em;color:#1d1d1f;margin:0}
 .sub-wide-head .sub-chip{margin-top:8px}
-.sub-wide .sub-desc{font-size:1rem;color:#6e6e73;line-height:1.55;margin-top:18px;max-width:56ch}
+.sub-wide .sub-desc{font-size:1rem;color:#6e6e73;line-height:1.55;margin-top:18px}
 .sub-feats.cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;margin-bottom:0}
 .sub-wide-buy{
   background:#f5f5f7;
@@ -1055,6 +1066,7 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   display:flex;
   flex-direction:column;
   align-items:stretch;
+  margin-top:auto;
 }
 .sub-wide-buy .sub-btn{margin-top:18px}
 .sub-fine{font-size:.76rem;color:#86868b;margin-top:12px;text-align:center}
@@ -1136,11 +1148,11 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-perks{grid-template-columns:repeat(2,1fr)}
 }
 
-/* phones: the three PS Plus tiers stay on one line as compact cards,
-   the EA card below them keeps the full width */
+/* phones: the two PS Plus tiers stay on one line as compact cards,
+   the Essential and EA cards below them keep the full width */
 @media(max-width:760px){
   .sub-grid{
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:10px;
     margin-top:34px;
   }
@@ -1177,7 +1189,8 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-feats.cols li{font-size:.82rem;gap:8px}
 
   /* EA card lies flat: description stays behind the toggle */
-  .sub-wide{padding:20px 18px;border-radius:20px;gap:18px}
+  .sub-wide-row{grid-template-columns:1fr;gap:12px;margin-top:14px}
+  .sub-wide{padding:20px 18px;border-radius:20px;gap:18px;height:auto}
   .sub-wide-head{gap:14px}
   .sub-wide-head .sub-logo svg{width:46px;height:46px}
   .sub-wide-head h3{font-size:1.2rem}
