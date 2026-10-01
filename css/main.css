@@ -1319,3 +1319,53 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
     font-size:.68rem;
   }
 }
+
+/* ============ AI PAGE ============ */
+.ai-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:14px;
+  margin-top:34px;
+}
+.ai-card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:18px 16px 16px;
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.ai-tile{
+  width:52px;height:52px;border-radius:15px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-weight:700;font-size:1.4rem;
+  color:#ffffff;background:var(--t,#1d1d1f);
+  box-shadow:var(--shadow-sm);
+}
+.ai-tile--gpt{--t:#10a37f}
+.ai-tile--claude{--t:#d97757}
+.ai-tile--gemini{--t:#4285f4}
+.ai-tile--midjourney{--t:#1f2937}
+.ai-tile--copilot{--t:#0078d4}
+.ai-card h3{
+  font-family:var(--sans);font-weight:600;font-size:1rem;
+  letter-spacing:-.01em;color:var(--ink);margin-top:14px;
+}
+.ai-card p{font-size:.84rem;color:var(--ink-soft);line-height:1.45;margin-top:6px}
+.ai-tag{
+  margin-top:auto;
+  padding-top:14px;
+  font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-faint);
+}
+@media(max-width:560px){
+  .ai-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:26px}
+  .ai-card{padding:14px 12px;border-radius:16px}
+  .ai-tile{width:44px;height:44px;border-radius:13px;font-size:1.15rem}
+  .ai-card h3{font-size:.86rem;margin-top:10px}
+  .ai-card p{font-size:.76rem}
+  .ai-tag{padding-top:10px;font-size:.62rem}
+}
