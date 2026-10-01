@@ -1124,7 +1124,7 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
     margin-top:34px;
   }
   .sub-card{
-    padding:16px 8px 14px;
+    padding:22px 8px 18px;
     border-radius:18px;
     align-items:center;
     text-align:center;
@@ -1132,21 +1132,21 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-card-head{
     flex-direction:column;
     justify-content:center;
-    gap:8px;
+    gap:10px;
   }
-  .sub-logo svg{width:38px;height:38px}
-  .sub-chip{font-size:.58rem;letter-spacing:0;padding:.32em .5em;white-space:nowrap}
-  .sub-card h3{font-size:.86rem;line-height:1.2;letter-spacing:-.01em;margin-top:14px}
+  .sub-logo svg{width:44px;height:44px}
+  .sub-chip{font-size:.6rem;letter-spacing:0;padding:.34em .55em;white-space:nowrap}
+  .sub-card h3{font-size:.9rem;line-height:1.22;letter-spacing:-.01em;margin-top:16px}
   .sub-card .sub-desc,
   .sub-card .sub-feats,
   .sub-card .sub-save{display:none}
   /* free space collects above the price, the price never touches the buttons */
-  .sub-card .sub-price{margin-top:auto;padding-top:14px;gap:0}
+  .sub-card .sub-price{margin-top:auto;padding-top:20px;gap:0}
   .sub-val{font-size:1.05rem;letter-spacing:-.02em;white-space:nowrap}
   .sub-card .sub-per{display:none}
-  .sub-btn{font-size:.74rem;padding:.62em .4em;gap:0}
-  .sub-card .sub-btn{margin-top:12px}
-  .sub-more{display:inline-flex;font-size:.72rem;padding:.6em .4em}
+  .sub-btn{font-size:.74rem;padding:.68em .4em;gap:0}
+  .sub-card .sub-btn{margin-top:14px}
+  .sub-more{display:inline-flex;font-size:.72rem;padding:.66em .4em;margin-top:10px}
   .sub-ribbon{
     top:-10px;left:50%;transform:translateX(-50%);
     font-size:.52rem;letter-spacing:.04em;padding:.3em .45em;white-space:nowrap;
@@ -1174,7 +1174,7 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-opt{flex:1;justify-content:center;padding:.6em .5em;font-size:.84rem}
   .sec-subs>.wrap{padding:0 12px}
   .sub-grid{margin-top:30px;gap:6px}
-  .sub-card{padding:14px 7px 12px}
+  .sub-card{padding:20px 7px 16px}
   .sub-perks{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
   .sub-perk-ic{width:38px;height:38px;border-radius:12px}
   .sub-perk b{margin-top:12px;font-size:.9rem}
