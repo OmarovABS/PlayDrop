@@ -82,7 +82,7 @@
 
   function close(){
     if(openBtn){
-      var prev = openBtn.closest('.sub-card, .sub-wide');
+      var prev = openBtn.closest('.sub-card');
       if(prev) prev.classList.remove('is-open');
       label(openBtn, false);
     }
@@ -94,15 +94,13 @@
   }
 
   function open(btn){
-    var host = btn.closest('.sub-card, .sub-wide');
+    var host = btn.closest('.sub-card');
     if(!host) return;
     openBtn = btn;
     host.classList.add('is-open');
     label(btn, true);
 
-    // the EA card is full width and reveals its own copy,
-    // the three tier cards share one panel under the whole row
-    if(!panel || host.classList.contains('sub-wide')) return;
+    if(!panel) return;
 
     panel.innerHTML = '';
     var title = host.querySelector('h3');

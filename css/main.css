@@ -934,10 +934,11 @@ body.drawer-open{overflow:hidden}
 }
 .sub-opt.on .sub-opt-save{background:rgba(48,209,88,.22)}
 
-/* tier cards */
+/* tier cards — all four the same size, two per row */
 .sub-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
+  grid-auto-rows:minmax(812px,auto);
   gap:26px;
   align-items:stretch;
   margin-top:46px;
@@ -945,8 +946,8 @@ body.drawer-open{overflow:hidden}
 .sub-card{
   position:relative;
   background:#ffffff;
-  border-radius:22px;
-  padding:30px 32px 32px;
+  border-radius:24px;
+  padding:40px 38px 42px;
   display:flex;
   flex-direction:column;
   box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 26px rgba(0,0,0,.06);
@@ -969,42 +970,42 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
   border-radius:100px;
   box-shadow:0 6px 16px rgba(0,0,0,.18);
 }
-.sub-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sub-card-head{display:flex;align-items:center;justify-content:space-between;gap:14px}
 .sub-logo{flex:0 0 auto;filter:drop-shadow(0 6px 14px rgba(0,0,0,.16))}
-.sub-logo svg{width:52px;height:52px}
+.sub-logo svg{width:70px;height:70px}
 .sub-chip{
   display:inline-flex;
   align-items:center;
-  font-size:.74rem;
+  font-size:.82rem;
   font-weight:600;
   letter-spacing:.02em;
   color:#6e6e73;
   background:#f0f0f3;
   border-radius:100px;
-  padding:.4em .8em;
+  padding:.4em .85em;
 }
 .sub-chip.alt{background:#1d1d1f;color:#ffffff}
-.sub-card h3{font-family:var(--sans);font-weight:600;font-size:1.42rem;letter-spacing:-.02em;color:#1d1d1f;margin-top:20px}
-.sub-desc{font-size:.94rem;color:#6e6e73;line-height:1.5;margin-top:8px;min-height:66px}
-.sub-price{margin-top:20px;display:flex;flex-direction:column;gap:3px}
-.sub-val{font-family:var(--sans);font-weight:600;font-size:2.3rem;letter-spacing:-.03em;color:#1d1d1f;line-height:1.1}
-.sub-per{font-size:.82rem;color:#86868b;font-weight:500}
+.sub-card h3{font-family:var(--sans);font-weight:600;font-size:1.7rem;letter-spacing:-.02em;color:#1d1d1f;margin-top:28px}
+.sub-desc{font-size:1.04rem;color:#6e6e73;line-height:1.5;margin-top:12px;min-height:94px}
+.sub-price{margin-top:28px;display:flex;flex-direction:column;gap:4px}
+.sub-val{font-family:var(--sans);font-weight:600;font-size:2.7rem;letter-spacing:-.03em;color:#1d1d1f;line-height:1.1}
+.sub-per{font-size:.9rem;color:#86868b;font-weight:500}
 .sub-save{
   display:inline-flex;
   align-items:center;
   align-self:flex-start;
-  margin-top:10px;
-  font-size:.78rem;
+  margin-top:14px;
+  font-size:.86rem;
   font-weight:600;
   color:#0a7d34;
   background:rgba(48,209,88,.13);
   border-radius:100px;
-  padding:.34em .75em;
+  padding:.34em .8em;
 }
 .sub-save[hidden]{display:none}
-.sub-feats{list-style:none;display:grid;gap:11px;margin:22px 0 26px}
-.sub-feats li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;color:#3a3a3c;line-height:1.45}
-.sub-feats li svg{color:#0071e3;flex:0 0 auto;margin-top:2px}
+.sub-feats{list-style:none;display:grid;gap:14px;margin:30px 0 30px}
+.sub-feats li{display:flex;align-items:flex-start;gap:12px;font-size:1.02rem;color:#3a3a3c;line-height:1.45}
+.sub-feats li svg{color:#0071e3;flex:0 0 auto;margin-top:3px}
 .sub-btn{
   margin-top:auto;
   width:100%;
@@ -1015,7 +1016,7 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
   border:none;
   cursor:pointer;
   font-family:var(--sans);
-  font-size:.98rem;
+  font-size:1.08rem;
   font-weight:500;
   letter-spacing:-.01em;
   color:#ffffff;
@@ -1027,49 +1028,6 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
 .sub-btn:hover{background:#0077ed}
 .sub-btn:active{transform:scale(.98)}
 .sub-btn.added{background:#34c759}
-
-.sub-wide-row{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:26px;
-  margin-top:24px;
-  align-items:stretch;
-}
-.sub-wide{
-  display:flex;
-  flex-direction:column;
-  gap:28px;
-  align-items:stretch;
-  background:#ffffff;
-  border-radius:24px;
-  padding:30px 32px;
-  box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 26px rgba(0,0,0,.06);
-  transition:transform .32s cubic-bezier(.22,.61,.36,1),box-shadow .32s;
-  height:100%;
-}
-.sub-wide-copy{
-  display:flex;
-  flex-direction:column;
-  flex:1 1 auto;
-}
-html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4px rgba(0,0,0,.05),0 22px 46px rgba(0,0,0,.12)}
-.sub-wide-head{display:flex;align-items:center;gap:18px}
-.sub-wide-head .sub-logo svg{width:64px;height:64px}
-.sub-wide-head h3{font-family:var(--sans);font-weight:600;font-size:1.6rem;letter-spacing:-.02em;color:#1d1d1f;margin:0}
-.sub-wide-head .sub-chip{margin-top:8px}
-.sub-wide .sub-desc{font-size:1rem;color:#6e6e73;line-height:1.55;margin-top:18px}
-.sub-feats.cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;margin-bottom:0}
-.sub-wide-buy{
-  background:#f5f5f7;
-  border-radius:18px;
-  padding:24px;
-  display:flex;
-  flex-direction:column;
-  align-items:stretch;
-  margin-top:auto;
-}
-.sub-wide-buy .sub-btn{margin-top:18px}
-.sub-fine{font-size:.76rem;color:#86868b;margin-top:12px;text-align:center}
 
 /* description toggle (phones only) */
 .sub-more{
@@ -1144,12 +1102,12 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   background:rgba(0,113,227,.1);
 }
 @media(max-width:1000px){
-  .sub-wide{grid-template-columns:1fr;gap:26px;padding:26px 24px}
+  .sub-grid{grid-auto-rows:auto}
   .sub-perks{grid-template-columns:repeat(2,1fr)}
 }
 
-/* phones: the two PS Plus tiers stay on one line as compact cards,
-   the Essential and EA cards below them keep the full width */
+/* phones: all four plans stay on one line as compact cards,
+   the description sits behind the toggle */
 @media(max-width:760px){
   .sub-grid{
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -1187,19 +1145,6 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   /* EA characteristics: two per line */
   .sub-feats.cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
   .sub-feats.cols li{font-size:.82rem;gap:8px}
-
-  /* EA card lies flat: description stays behind the toggle */
-  .sub-wide-row{grid-template-columns:1fr;gap:12px;margin-top:14px}
-  .sub-wide{padding:20px 18px;border-radius:20px;gap:18px;height:auto}
-  .sub-wide-head{gap:14px}
-  .sub-wide-head .sub-logo svg{width:46px;height:46px}
-  .sub-wide-head h3{font-size:1.2rem}
-  .sub-wide .sub-desc,
-  .sub-wide .sub-feats{display:none}
-  .sub-wide.is-open .sub-desc{display:block}
-  .sub-wide.is-open .sub-feats{display:grid}
-  .sub-wide-buy{padding:18px;border-radius:16px}
-  .sub-wide-buy .sub-btn{margin-top:14px}
 }
 
 @media(max-width:560px){
