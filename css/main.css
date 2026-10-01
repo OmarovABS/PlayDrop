@@ -1038,6 +1038,56 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
 .sub-wide-buy .sub-btn{margin-top:18px}
 .sub-fine{font-size:.76rem;color:#86868b;margin-top:12px;text-align:center}
 
+/* description toggle (phones only) */
+.sub-more{
+  display:none;
+  width:100%;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin-top:8px;
+  border:1px solid var(--line);
+  background:#f5f5f7;
+  color:#1d1d1f;
+  border-radius:100px;
+  padding:.68em 1em;
+  font-family:var(--sans);
+  font-size:.88rem;
+  font-weight:500;
+  letter-spacing:-.01em;
+  cursor:pointer;
+  transition:background .2s ease,border-color .2s ease;
+}
+.sub-more:hover{background:#ececf0}
+.sub-more svg{flex:0 0 auto;transition:transform .25s ease}
+.sub-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+.sub-card.is-open{box-shadow:0 0 0 2px #0071e3,0 16px 40px rgba(0,0,0,.12)}
+.sub-card.is-open .sub-more{background:#eaf3fe;border-color:#0071e3;color:#0071e3}
+
+.sub-more-panel{
+  grid-column:1 / -1;
+  background:#ffffff;
+  border-radius:22px;
+  padding:22px 24px;
+  box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 26px rgba(0,0,0,.06);
+  text-align:left;
+}
+.sub-more-panel[hidden]{display:none}
+/* the panel only makes sense on phones, where the copy is behind the toggle */
+@media(min-width:761px){
+  .sub-more-panel{display:none}
+}
+.sub-more-title{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:1.05rem;
+  letter-spacing:-.01em;
+  color:#1d1d1f;
+  margin:0 0 8px;
+}
+.sub-more-panel .sub-desc{min-height:0;margin-top:0}
+.sub-more-panel .sub-feats{grid-template-columns:1fr;gap:10px;margin:16px 0 0}
+
 /* perks row */
 .sub-perks{
   list-style:none;
@@ -1094,6 +1144,7 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-val{font-size:1.15rem;letter-spacing:-.02em}
   .sub-card .sub-per{display:none}
   .sub-btn{font-size:.74rem;padding:.62em .4em;gap:0}
+  .sub-more{display:inline-flex;font-size:.72rem;padding:.6em .4em}
   .sub-ribbon{
     top:-10px;left:50%;transform:translateX(-50%);
     font-size:.52rem;letter-spacing:.04em;padding:.3em .45em;white-space:nowrap;
@@ -1101,6 +1152,18 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   /* EA characteristics: two per line */
   .sub-feats.cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
   .sub-feats.cols li{font-size:.82rem;gap:8px}
+
+  /* EA card lies flat: description stays behind the toggle */
+  .sub-wide{padding:20px 18px;border-radius:20px;gap:18px}
+  .sub-wide-head{gap:14px}
+  .sub-wide-head .sub-logo svg{width:46px;height:46px}
+  .sub-wide-head h3{font-size:1.2rem}
+  .sub-wide .sub-desc,
+  .sub-wide .sub-feats{display:none}
+  .sub-wide.is-open .sub-desc{display:block}
+  .sub-wide.is-open .sub-feats{display:grid}
+  .sub-wide-buy{padding:18px;border-radius:16px}
+  .sub-wide-buy .sub-btn{margin-top:14px}
 }
 
 @media(max-width:560px){
@@ -1108,11 +1171,10 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-switch{width:100%;justify-content:space-between;margin-top:28px}
   .sub-opt{flex:1;justify-content:center;padding:.6em .5em;font-size:.84rem}
   .sub-grid{margin-top:30px;gap:8px}
-  .sub-wide{border-radius:20px;padding:24px 20px}
-  .sub-perks{grid-template-columns:1fr;gap:20px}
-  .sub-perk{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px}
+  .sub-perks{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
   .sub-perk-ic{width:38px;height:38px;border-radius:12px}
-  .sub-perk b{margin-top:0;width:100%}
+  .sub-perk b{margin-top:12px;font-size:.9rem}
+  .sub-perk>span:last-child{font-size:.8rem}
 }
 
 
@@ -1125,6 +1187,7 @@ html.js .sub-wide.reveal.in:hover{transform:translateY(-4px);box-shadow:0 2px 4p
   .sub-chip{font-size:.54rem;padding:.28em .4em}
   .sub-logo svg{width:34px;height:34px}
   .sub-btn{font-size:.7rem;padding:.6em .3em}
+  .sub-more{font-size:.68rem;padding:.58em .3em}
 }
 
 /* ============ SERVICES PAGE ============ */

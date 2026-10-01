@@ -182,6 +182,9 @@
   <symbol id="i-sub-check" viewBox="0 0 20 20">
     <path d="M4 10.6l3.9 3.9L16 5.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+  <symbol id="i-sub-chevron" viewBox="0 0 20 20">
+    <path d="M5.5 8l4.5 4.5L14.5 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
   <symbol id="i-sub-clock" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.8" fill="none"/>
     <path d="M12 7.2v5.2l3.4 2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/>
@@ -561,6 +564,10 @@
           <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Активация за 15 минут</li>
         </ul>
         <button class="sub-btn" data-add data-id="psplus-essential" data-name="PS Plus Essential" data-latin="12 месяцев" data-price="11500" data-kind="Подписка" data-ico="🕹">Оформить</button>
+        <button class="sub-more" type="button" data-sub-more aria-expanded="false" aria-controls="subMore">
+          <span>Описание</span>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><use href="#i-sub-chevron"/></svg>
+        </button>
       </article>
 
       <article class="sub-card pop reveal" data-p1="2400" data-p3="6500" data-p12="23000">
@@ -583,6 +590,10 @@
           <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Эксклюзивные скидки для подписчиков</li>
         </ul>
         <button class="sub-btn" data-add data-id="psplus-extra" data-name="PS Plus Extra" data-latin="12 месяцев" data-price="23000" data-kind="Подписка" data-ico="🕹">Оформить</button>
+        <button class="sub-more" type="button" data-sub-more aria-expanded="false" aria-controls="subMore">
+          <span>Описание</span>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><use href="#i-sub-chevron"/></svg>
+        </button>
       </article>
 
       <article class="sub-card reveal" data-p1="3000" data-p3="8100" data-p12="28800">
@@ -604,7 +615,13 @@
           <li><svg width="18" height="18" viewBox="0 0 20 20" fill="none"><use href="#i-sub-check"/></svg>Скидки 70% в дни распродаж каталога</li>
         </ul>
         <button class="sub-btn" data-add data-id="psplus-deluxe" data-name="PS Plus Deluxe" data-latin="12 месяцев" data-price="28800" data-kind="Подписка" data-ico="🕹">Оформить</button>
+        <button class="sub-more" type="button" data-sub-more aria-expanded="false" aria-controls="subMore">
+          <span>Описание</span>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><use href="#i-sub-chevron"/></svg>
+        </button>
       </article>
+
+      <div class="sub-more-panel" id="subMore" hidden></div>
 
     </div>
 
@@ -634,6 +651,10 @@
         </div>
         <div class="sub-save" data-sub-save>Выгода 2 200 ₽ против помесячной оплаты</div>
         <button class="sub-btn" data-add data-id="ea-play" data-name="EA Play" data-latin="12 месяцев" data-price="8600" data-kind="Подписка" data-ico="⚽">Оформить подписку</button>
+        <button class="sub-more" type="button" data-sub-more aria-expanded="false" aria-controls="subWideCopy">
+          <span>Описание</span>
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><use href="#i-sub-chevron"/></svg>
+        </button>
         <p class="sub-fine">Активируем на вашем аккаунте PS5 в течение 15 минут после оплаты</p>
       </div>
     </div>

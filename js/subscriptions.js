@@ -61,3 +61,71 @@
 
   setTerm(term);
 })();
+
+/* ===== SUBSCRIPTION DESCRIPTION TOGGLE =====
+   phones only (the buttons are hidden on wider screens);
+   opening one card closes the one opened before it */
+(function(){
+  'use strict';
+
+  var btns = [].slice.call(document.querySelectorAll('[data-sub-more]'));
+  if(!btns.length) return;
+
+  var panel = document.getElementById('subMore');
+  var openBtn = null;
+
+  function label(btn, expanded){
+    var span = btn.querySelector('span');
+    if(span) span.textContent = expanded ? 'Скрыть' : 'Описание';
+    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  }
+
+  function close(){
+    if(openBtn){
+      var prev = openBtn.closest('.sub-card, .sub-wide');
+      if(prev) prev.classList.remove('is-open');
+      label(openBtn, false);
+    }
+    if(panel){
+      panel.innerHTML = '';
+      panel.hidden = true;
+    }
+    openBtn = null;
+  }
+
+  function open(btn){
+    var host = btn.closest('.sub-card, .sub-wide');
+    if(!host) return;
+    openBtn = btn;
+    host.classList.add('is-open');
+    label(btn, true);
+
+    // the EA card is full width and reveals its own copy,
+    // the three tier cards share one panel under the whole row
+    if(!panel || host.classList.contains('sub-wide')) return;
+
+    panel.innerHTML = '';
+    var title = host.querySelector('h3');
+    if(title){
+      var h = title.cloneNode(true);
+      h.className = 'sub-more-title';
+      panel.appendChild(h);
+    }
+    ['.sub-desc', '.sub-feats'].forEach(function(sel){
+      var node = host.querySelector(sel);
+      if(node) panel.appendChild(node.cloneNode(true));
+    });
+    panel.hidden = false;
+  }
+
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(openBtn === btn) close();
+      else { close(); open(btn); }
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if((e.key === 'Escape' || e.keyCode === 27) && openBtn) close();
+  });
+})();
