@@ -17,7 +17,7 @@
 <body>
 
 <!-- TOP BAR -->
-<header class="navbar" id="topbar">
+<header class="navbar navbar-home" id="topbar">
   <div class="navbar-inner">
     <a class="brand" href="index.html" aria-label="D'VORA — услуги">
       <img class="brand-mark" src="assets/images/logo-mark.png" alt="">
@@ -109,39 +109,94 @@
 </aside>
 
 <!-- SERVICES -->
-<section class="services-section">
-  <div class="wrap">
-    <h1 class="services-title">Наши услуги</h1>
+<main class="services">
 
-    <div class="services-grid">
-      <a href="playstation.html#games" class="service-item service-item--ps reveal">
-        <span class="service-tile"><img src="assets/images/helps/ps.png" alt="PlayStation"></span>
-        <span class="service-name">PlayStation</span>
-      </a>
-
-      <a href="ai.html" class="service-item service-item--ai reveal">
-        <span class="service-tile"><img src="assets/images/helps/iintelect.png" alt="Искусственный интеллект"></span>
-        <span class="service-name">Искусственный интеллект</span>
-      </a>
-
-      <a href="#" class="service-item service-item--cloud reveal is-soon">
-        <span class="service-tile"><img src="assets/images/helps/oblaco.png" alt="Облачные хранилища"></span>
-        <span class="service-name">Облачные хранилища</span>
-      </a>
-
-      <a href="#" class="service-item service-item--vpn reveal is-soon">
-        <span class="service-tile"><img src="assets/images/helps/vpn.png" alt="VPN-сервисы"></span>
-        <span class="service-name">VPN-сервисы</span>
-      </a>
+  <section class="services-hero">
+    <div class="wrap">
+      <span class="services-eyebrow">D&rsquo;VORA</span>
+      <h1 class="services-title">Наши&nbsp;услуги</h1>
+      <p class="services-sub">Игры, подписки и цифровые сервисы с мгновенной доставкой. Оплата проходит прямо в&nbsp;Telegram.</p>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="services-section">
+    <div class="wrap">
+      <div class="services-grid">
+
+        <a href="playstation.html#games" class="service-item service-item--ps reveal">
+          <span class="service-tile"><img src="assets/images/helps/ps.png" alt="PlayStation"></span>
+          <span class="service-name">PlayStation</span>
+        </a>
+
+        <a href="ai.html" class="service-item service-item--ai reveal">
+          <span class="service-tile"><img src="assets/images/helps/iintelect.png" alt="Искусственный интеллект"></span>
+          <span class="service-name">Искусственный интеллект</span>
+        </a>
+
+        <a href="#" class="service-item service-item--cloud reveal is-soon" data-soon="Облачные хранилища">
+          <span class="service-tile"><img src="assets/images/helps/oblaco.png" alt="Облачные хранилища"></span>
+          <span class="service-name">Облачные хранилища</span>
+        </a>
+
+        <a href="#" class="service-item service-item--vpn reveal is-soon" data-soon="VPN-сервисы">
+          <span class="service-tile"><img src="assets/images/helps/vpn.png" alt="VPN-сервисы"></span>
+          <span class="service-name">VPN-сервисы</span>
+        </a>
+
+      </div>
+
+      <ul class="services-perks">
+        <li class="service-perk">
+          <span class="service-perk-ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><use href="#i-sv-bolt"/></svg>
+          </span>
+          <b>Выдача за 15 минут</b>
+          <span>Ключ или данные приходят сразу после оплаты.</span>
+        </li>
+        <li class="service-perk">
+          <span class="service-perk-ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><use href="#i-sv-shield"/></svg>
+          </span>
+          <b>Оплата в Telegram</b>
+          <span>Никаких карт и паролей &mdash; всё внутри мессенджера.</span>
+        </li>
+        <li class="service-perk">
+          <span class="service-perk-ic" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><use href="#i-sv-headset"/></svg>
+          </span>
+          <b>Поддержка 24/7</b>
+          <span>Поможем с заказом в любое время суток.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="services-foot">
+    <div class="wrap">
+      <p class="services-foot-txt">&copy; D&rsquo;VORA. Все права защищены.</p>
+      <p class="services-foot-txt">Оплата и доставка &mdash; через Telegram.</p>
+    </div>
+  </footer>
+</main>
 
 <!-- ICONS -->
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:none">
   <symbol id="i-nav-bag" viewBox="0 0 24 24">
     <path d="M5.6 7.8h12.8l1.1 11.1a1.6 1.6 0 0 1-1.6 1.75H6.1a1.6 1.6 0 0 1-1.6-1.75z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
     <path d="M9.1 10V6.9a2.9 2.9 0 0 1 5.8 0V10" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-sv-bolt" viewBox="0 0 24 24">
+    <path d="M13.4 2.6L4.9 13.1a.7.7 0 0 0 .54 1.15H10l-.7 7.05 8.6-10.5a.7.7 0 0 0-.54-1.15H13z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-sv-shield" viewBox="0 0 24 24">
+    <path d="M12 2.9l7.4 2.9v5.3c0 4.5-3.1 8.6-7.4 10-4.3-1.4-7.4-5.5-7.4-10V5.8z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+    <path d="M9.2 11.9l2 2 3.6-3.7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-sv-headset" viewBox="0 0 24 24">
+    <path d="M4.6 14.4v-2.3a7.4 7.4 0 0 1 14.8 0v2.3" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <rect x="3.2" y="13.2" width="3.6" height="6" rx="1.8" stroke="currentColor" stroke-width="1.6" fill="none"/>
+    <rect x="17.2" y="13.2" width="3.6" height="6" rx="1.8" stroke="currentColor" stroke-width="1.6" fill="none"/>
+    <path d="M19.4 19.2a2.6 2.6 0 0 1-2.6 2.4H14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
   </symbol>
   <symbol id="i-nav-chevron" viewBox="0 0 12 12">
     <path d="M2.6 4.4L6 7.8l3.4-3.4" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>

@@ -167,6 +167,17 @@
     switchSection('games');
   }
 
+  // ===== SERVICES PAGE — "soon" cards =====
+  document.addEventListener('click', function(e){
+    var card = e.target.closest('.service-item[data-soon]');
+    if(!card) return;
+    e.preventDefault();
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if(tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
+    var name = card.getAttribute('data-soon') || 'Раздел';
+    if(window.PlayDropToast) window.PlayDropToast(name + ' — раздел уже скоро.');
+  });
+
   function relayout(){ moveThumb(); syncBar(); }
 
   window.addEventListener('resize', relayout);
