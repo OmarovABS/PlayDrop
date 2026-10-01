@@ -1186,9 +1186,17 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
 
 /* hero */
 .services-hero{
-  padding:clamp(40px,7vw,78px) 0 clamp(14px,2vw,22px);
+  padding:0;
   text-align:center;
-  background:linear-gradient(180deg,#ffffff 0%,#fbfbfd 100%);
+  background:#ffffff;
+}
+/* same grey edge-to-edge band as the section titles on the other pages */
+.services-band{
+  width:100vw;
+  margin:0 0 0 50%;
+  transform:translateX(-50%);
+  padding:clamp(34px,4.4vw,54px) clamp(24px,4vw,44px);
+  background:#e8e8ed;
 }
 .services-eyebrow{
   display:inline-block;
@@ -1365,7 +1373,8 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
 
 /* phones */
 @media(max-width:560px){
-  .services-hero{padding:34px 0 6px}
+  .services-hero{padding:0}
+  .services-band{padding:30px 18px}
   .services-eyebrow{font-size:.72rem;letter-spacing:.14em;margin-bottom:12px}
   .services-title{font-size:2.3rem;letter-spacing:-.03em}
   .services-sub{font-size:1rem;margin-top:16px}
