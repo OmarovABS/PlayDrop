@@ -422,7 +422,7 @@ h1.head em{font-style:italic;color:var(--accent-strong);font-weight:500}
   width:100vw;
   margin:calc(-1 * var(--sec-pt,64px)) 0 32px 50%;
   transform:translateX(-50%);
-  background:#e8e8ed;
+  background:#000000;
   line-height:0;
 }
 .sec-cover-img{
@@ -430,6 +430,13 @@ h1.head em{font-style:italic;color:var(--accent-strong);font-weight:500}
   width:100%;
   height:auto;
   border-radius:0 0 32px 32px;
+}
+/* games (catalog) sits on a black surface so the cover blends in */
+#catalog{
+  background:#000000;
+}
+#catalog .genre-title{
+  color:#ffffff;
 }
 .sec-meta{margin-top:28px;display:flex;align-items:center;justify-content:center;gap:14px 26px;flex-wrap:wrap}
  
