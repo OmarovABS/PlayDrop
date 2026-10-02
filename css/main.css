@@ -416,6 +416,21 @@ h1.head em{font-style:italic;color:var(--accent-strong);font-weight:500}
 }
 .sec-head--panel h2{color:var(--ink)}
 .sec-head--panel p{color:var(--ink-soft)}
+/* full-bleed cover image at the top of a section — same treatment as the
+   services hero on the home page: flush to the top, bottom corners rounded */
+.sec-cover{
+  width:100vw;
+  margin:calc(-1 * var(--sec-pt,64px)) 0 32px 50%;
+  transform:translateX(-50%);
+  background:#e8e8ed;
+  line-height:0;
+}
+.sec-cover-img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:0 0 32px 32px;
+}
 .sec-meta{margin-top:28px;display:flex;align-items:center;justify-content:center;gap:14px 26px;flex-wrap:wrap}
  
 /* HITS */
@@ -1395,6 +1410,7 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
 @media(max-width:560px){
   .services-hero{padding:0}
   .services-cover{border-radius:0 0 24px 24px}
+  .sec-cover-img{border-radius:0 0 24px 24px}
   .services-band{padding:30px 18px}
   .services-eyebrow{font-size:.72rem;letter-spacing:.14em;margin-bottom:12px}
   .services-title{font-size:2.3rem;letter-spacing:-.03em}
