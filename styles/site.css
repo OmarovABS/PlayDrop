@@ -998,7 +998,7 @@ body.drawer-open{overflow:hidden}
   grid-template-columns:repeat(2,1fr);
   grid-auto-rows:minmax(812px,auto);
   gap:26px;
-  align-items:stretch;
+  align-items:start;
   margin-top:46px;
 }
 .sub-card{
@@ -1029,8 +1029,9 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
   box-shadow:0 6px 16px rgba(0,0,0,.18);
 }
 .sub-card-head{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.sub-logo{display:block;width:100%;filter:none}
-.sub-logo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:14px}
+.sub-logo{display:block;width:100%;aspect-ratio:16 / 9;margin:0;overflow:hidden;border-radius:16px;background:#fff;filter:none}
+.sub-logo img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.2)}
+.sub-logo--ea img{object-fit:contain;transform:none}
 .sub-chip{
   display:inline-flex;
   align-items:center;
@@ -1183,7 +1184,6 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
     justify-content:center;
     gap:10px;
   }
-  .sub-logo svg{width:44px;height:44px}
   .sub-chip{font-size:.6rem;letter-spacing:0;padding:.34em .55em;white-space:nowrap}
   .sub-card h3{font-size:.9rem;line-height:1.22;letter-spacing:-.01em;margin-top:16px}
   .sub-card .sub-desc,
@@ -1225,8 +1225,6 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
   .sub-card{padding:13px 6px 11px}
   .sub-val{font-size:1rem;white-space:nowrap}
   .sub-card h3{font-size:.8rem}
-  .sub-chip{font-size:.54rem;padding:.28em .4em}
-  .sub-logo img{width:100%;height:auto}
   .sub-chip{font-size:.54rem;padding:.28em .4em}
   .sub-more{font-size:.68rem;padding:.58em .3em}
 }
