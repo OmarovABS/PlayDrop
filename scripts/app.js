@@ -41,15 +41,6 @@
     });
   }
 
-  // signin form
-  var signinForm = document.getElementById('signinForm');
-  if(signinForm){
-    signinForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      if(window.goPage){ window.goPage('app'); }
-    });
-  }
-
   // ===== CATALOG FILTER =====
   var filters = document.getElementById('filters');
   var catGrid = document.getElementById('catalogGrid');

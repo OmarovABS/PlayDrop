@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="styles/site.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -374,10 +374,10 @@
 <section class="sec sec-subs" id="subscriptions" hidden>
   <div class="wrap">
 
-    <div class="sec-head center sec-head--panel">
-      <span class="sub-eyebrow">D'VORA Plus</span>
-      <h2>Подписки PS5</h2>
-      <p>Все уровни PS Plus и EA Play. Активируем подписку на ваш аккаунт в течение 15 минут после оплаты.</p>
+    <div class="sec-cover">
+      <h2 class="sr-only">Подписки PS5</h2>
+      <img class="sec-cover-img" src="assets/images/first_pages/pages_ps/subscr.png" width="1536" height="1024" alt="Подписки PS5 — PS Plus и EA Play с мгновенной активацией" fetchpriority="high">
+      <p class="sr-only">PS Plus и EA Play. Подписки активируются в течение 15 минут после оплаты.</p>
     </div>
 
     <div class="sub-switch" id="subSwitch" role="tablist" aria-label="Срок подписки">
@@ -391,7 +391,7 @@
       <article class="sub-card pop reveal" data-p1="2400" data-p3="6500" data-p12="23000">
         <span class="sub-ribbon">Популярный</span>
         <div class="sub-card-head">
-          <span class="sub-logo"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" role="img" aria-label="PS Plus Extra"><use href="#i-sub-extra"/></svg></span>
+          <span class="sub-logo"><img src="assets/images/first_pages/pages_ps/subs/psplus_extra.png" alt="PlayStation Plus Extra" loading="lazy"></span>
           <span class="sub-chip">Оптимальный</span>
         </div>
         <h3>PS Plus Extra</h3>
@@ -416,7 +416,7 @@
 
       <article class="sub-card reveal" data-p1="3000" data-p3="8100" data-p12="28800">
         <div class="sub-card-head">
-          <span class="sub-logo"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" role="img" aria-label="PS Plus Deluxe"><use href="#i-sub-deluxe"/></svg></span>
+          <span class="sub-logo"><img src="assets/images/first_pages/pages_ps/subs/psplus_deluxe.png" alt="PlayStation Plus Deluxe" loading="lazy"></span>
           <span class="sub-chip">Максимум</span>
         </div>
         <h3>PS Plus Deluxe</h3>
@@ -441,7 +441,7 @@
 
       <article class="sub-card reveal" data-p1="1200" data-p3="3300" data-p12="11500">
         <div class="sub-card-head">
-          <span class="sub-logo"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" role="img" aria-label="PS Plus Essential"><use href="#i-sub-essential"/></svg></span>
+          <span class="sub-logo"><img src="assets/images/first_pages/pages_ps/subs/psplus_essential.png" alt="PlayStation Plus Essential" loading="lazy"></span>
           <span class="sub-chip">Базовый</span>
         </div>
         <h3>PS Plus Essential</h3>
@@ -466,7 +466,7 @@
 
       <article class="sub-card reveal" data-p1="900" data-p3="2400" data-p12="8600">
         <div class="sub-card-head">
-          <span class="sub-logo"><svg width="52" height="52" viewBox="0 0 48 48" fill="none" role="img" aria-label="EA Play"><use href="#i-sub-ea"/></svg></span>
+          <span class="sub-logo"><img src="assets/images/first_pages/pages_ps/subs/ps_eaplay.png" alt="EA Play" loading="lazy"></span>
           <span class="sub-chip alt">Библиотека EA на PS5</span>
         </div>
         <h3>EA Play</h3>
@@ -522,13 +522,12 @@
 </section>
 
 <!-- JavaScript Modules -->
-  <script src="js/main.js"></script>
-  <script src="js/user.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/cart-drawer.js"></script>
-  <script src="js/profile.js"></script>
-  <script src="js/subscriptions.js"></script>
-  <script src="js/telegram.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/user.js"></script>
+  <script src="scripts/cart.js"></script>
+  <script src="scripts/cart-drawer.js"></script>
+  <script src="scripts/profile.js"></script>
+  <script src="scripts/telegram.js"></script>
 
 </body>
 </html>
