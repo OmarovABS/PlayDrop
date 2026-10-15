@@ -1196,11 +1196,12 @@ html.js .sub-card.pop.reveal.in:hover{box-shadow:0 0 0 2px #0071e3,0 26px 54px r
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:10px;
     margin-top:34px;
+    max-width:100%;
   }
   .sub-grid::before,
   .sub-grid::after{display:none}
   .sub-card{
-    padding:22px 8px 18px;
+    padding:18px 6px 16px;
     border-radius:18px;
     align-items:center;
     text-align:center;
