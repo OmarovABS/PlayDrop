@@ -158,6 +158,116 @@
     switchSection('games');
   }
 
+  // ===== SUBSCRIPTION PERIOD SWITCHER =====
+  var subSwitch = document.getElementById('subSwitch');
+  if(subSwitch){
+    subSwitch.addEventListener('click', function(e){
+      var btn = e.target.closest('.sub-opt');
+      if(!btn) return;
+      e.preventDefault();
+      var term = btn.getAttribute('data-term');
+      if(!term) return;
+
+      // Update active button
+      [].forEach.call(subSwitch.querySelectorAll('.sub-opt'), function(b){
+        b.classList.remove('on');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('on');
+      btn.setAttribute('aria-selected', 'true');
+
+      // Update prices in all subscription cards
+      var subCards = document.querySelectorAll('.sub-card');
+      subCards.forEach(function(card){
+        var priceAttr = 'data-p' + term;
+        var price = card.getAttribute(priceAttr);
+        if(price){
+          var valEl = card.querySelector('[data-sub-val]');
+          var perEl = card.querySelector('[data-sub-per]');
+          var saveEl = card.querySelector('[data-sub-save]');
+          var btnEl = card.querySelector('.sub-btn');
+
+          if(valEl) valEl.textContent = formatPrice(price);
+          if(perEl) perEl.textContent = formatPerMonth(price, term);
+          if(saveEl) saveEl.textContent = formatSave(price, term);
+          if(btnEl) {
+            btnEl.setAttribute('data-price', price);
+            btnEl.setAttribute('data-latin', term + ' месяцев');
+          }
+        }
+      });
+
+      // Haptic feedback
+      var tg = window.Telegram && window.Telegram.WebApp;
+      if(tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
+    });
+  }
+
+  function formatPrice(price){
+    return parseInt(price).toLocaleString('ru-RU') + ' ₽';
+  }
+
+  function formatPerMonth(price, term){
+    var perMonth = Math.round(price / term);
+    return perMonth.toLocaleString('ru-RU') + ' ₽ в месяц при оплате за ' + term + ' мес.';
+  }
+
+  function formatSave(price, term){
+    var monthlyPrice = parseInt(price) / term;
+    var monthly12 = {
+      '1': 2400,
+      '3': 2167,
+      '12': 1917
+    };
+    var baseMonthly = monthly12[term] || 2400;
+    var save = Math.round((baseMonthly - monthlyPrice) * term);
+    return 'Выгода ' + save.toLocaleString('ru-RU') + ' ₽ против помесячной оплаты';
+  }
+
+  // ===== SUBSCRIPTION DESCRIPTION TOGGLE =====
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-sub-more]');
+    if(!btn) return;
+    e.preventDefault();
+    var card = btn.closest('.sub-card');
+    if(!card) return;
+
+    var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+    var panel = document.getElementById('subMore');
+    if(!panel) return;
+
+    // Close all other cards
+    document.querySelectorAll('.sub-card.is-open').forEach(function(c){
+      if(c !== card){
+        c.classList.remove('is-open');
+        var otherBtn = c.querySelector('[data-sub-more]');
+        if(otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Toggle current card
+    card.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', !isExpanded);
+
+    if(!isExpanded){
+      // Populate panel with card content
+      var title = card.querySelector('h3').textContent;
+      var desc = card.querySelector('.sub-desc').textContent;
+      var feats = card.querySelector('.sub-feats').innerHTML;
+
+      panel.innerHTML = '<h4 class="sub-more-title">' + title + '</h4>' +
+                       '<p class="sub-desc">' + desc + '</p>' +
+                       '<ul class="sub-feats">' + feats + '</ul>';
+      panel.hidden = false;
+    } else {
+      panel.hidden = true;
+    }
+
+    // Haptic feedback
+    var tg = window.Telegram && window.Telegram.WebApp;
+    if(tg && tg.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
+  });
+
   // ===== SERVICES PAGE — "soon" cards =====
   document.addEventListener('click', function(e){
     var card = e.target.closest('.service-item[data-soon]');
